@@ -1,0 +1,123 @@
+[
+  {
+    "id": 5,
+    "uuid": "ee416696-9982-48f2-a083-11532cba6587",
+    "title": "Açougue ",
+    "description": "",
+    "warning_text": null,
+    "icon": "MeatFish",
+    "show_home": "YES",
+    "status": "ACTIVE",
+    "seo_url": "acougue"
+  },
+  {
+    "id": 14,
+    "uuid": "36914780-7eea-4de1-8559-25bb1d2d5d58",
+    "title": "Bazar",
+    "description": "",
+    "warning_text": null,
+    "icon": "Bazar",
+    "show_home": "YES",
+    "status": "ACTIVE",
+    "seo_url": "bazar"
+  },
+  {
+    "id": 7,
+    "uuid": "0b139b7a-1092-4a20-a84e-2b6d9b6ad27a",
+    "title": "Bebidas",
+    "description": "",
+    "warning_text": null,
+    "icon": "Beverage",
+    "show_home": "YES",
+    "status": "ACTIVE",
+    "seo_url": "bebidas"
+  },
+  {
+    "id": 11,
+    "uuid": "3c259f25-28f0-4e28-b86b-fdbbe88011e0",
+    "title": "Frios e Lacticínios",
+    "description": "",
+    "warning_text": null,
+    "icon": "Dairy",
+    "show_home": "YES",
+    "status": "ACTIVE",
+    "seo_url": "frios-e-lacticinios"
+  },
+  {
+    "id": 10,
+    "uuid": "52b0fad4-5bcc-45cb-8ea8-f2728a1ca8f2",
+    "title": "Higiene e Beleza",
+    "description": "",
+    "warning_text": null,
+    "icon": "BeautyHealth",
+    "show_home": "YES",
+    "status": "ACTIVE",
+    "seo_url": "higiene-e-beleza"
+  },
+  {
+    "id": 4,
+    "uuid": "95510610-cf76-4064-b6dd-56980b304d77",
+    "title": "Hortifruti",
+    "description": "Frutas, Legumes, Verduras",
+    "warning_text": null,
+    "icon": "FruitsVegetable",
+    "show_home": "YES",
+    "status": "ACTIVE",
+    "seo_url": "hortifruti"
+  },
+  {
+    "id": 12,
+    "uuid": "3d4ca428-a71e-4a7e-b075-34183ffc0d9f",
+    "title": "Lanches",
+    "description": "",
+    "warning_text": null,
+    "icon": "Snacks",
+    "show_home": "YES",
+    "status": "ACTIVE",
+    "seo_url": "lanches"
+  },
+  {
+    "id": 9,
+    "uuid": "befdb0fb-788a-496f-af7c-49693052112d",
+    "title": "Limpeza",
+    "description": "",
+    "warning_text": null,
+    "icon": "HomeCleaning",
+    "show_home": "YES",
+    "status": "ACTIVE",
+    "seo_url": "limpeza"
+  },
+  {
+    "id": 13,
+    "uuid": "6a7a727c-3ae0-4da4-816c-b70c6fd788f7",
+    "title": "Mercearia",
+    "description": "",
+    "warning_text": null,
+    "icon": "Cooking",
+    "show_home": "YES",
+    "status": "ACTIVE",
+    "seo_url": "mercearia"
+  },
+  {
+    "id": 8,
+    "uuid": "7637224c-f068-4cfc-914c-23437cb331ae",
+    "title": "Padaria",
+    "description": "",
+    "warning_text": null,
+    "icon": "Breakfast",
+    "show_home": "YES",
+    "status": "ACTIVE",
+    "seo_url": "padaria"
+  },
+  {
+    "id": 6,
+    "uuid": "312b4811-a8ca-4ef4-aac8-3475163de66f",
+    "title": "Pets",
+    "description": "Rações Saches",
+    "warning_text": null,
+    "icon": "PetCare",
+    "show_home": "YES",
+    "status": "ACTIVE",
+    "seo_url": "pets"
+  }
+]
