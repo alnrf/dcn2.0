@@ -11,7 +11,6 @@ export { OuterWear } from './OuterWear';
 export { Pants } from './Pants';
 export { Tops } from './Tops';
 export { Skirts } from './Skirts';
-export { Shirts } from './Shirts';
 export { Face } from './Face';
 export { Eyes } from './Eyes';
 export { Lips } from './Lips';
@@ -40,3 +39,4 @@ export { CenterTable } from '../icons/category/center-table';
 export { RelaxChair } from '../icons/category/relax-chair';
 export { Storage } from '../icons/category/storage';
 export { Tools } from '../icons/category/tools';
+
