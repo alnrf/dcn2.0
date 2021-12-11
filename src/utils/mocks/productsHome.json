@@ -1,0 +1,130 @@
+{
+  "product": [
+    {
+      "id": 12,
+      "uuid": "3975d5dd-b0dd-41b4-b358-80761a0f0256",
+      "code": "66",
+      "title": "Café",
+      "from_amount": 0,
+      "amount": 1000,
+      "stock_type": "LITER",
+      "stock_unity": 0,
+      "stock_quantity": 200,
+      "seo_url": "cfa",
+      "status": "ACTIVE",
+      "show_home": "NO",
+      "admin_favorite": "NO",
+      "image": {
+        "image_url": "http://poa01.datacubo.net:3030/image/3/c35f6a19-e72a-4031-b10a-6fea3a3ee9c69dae9427-b784-4121-9a55-66c99360f9ed_1637261170_thumb.jpg"
+      }
+    },
+    {
+      "id": 6,
+      "uuid": "ff517135-f851-42ef-b38d-d53b42b4941f",
+      "code": "MCVERDE0001",
+      "title": "Maça Verde 1kg",
+      "from_amount": 699,
+      "amount": 589,
+      "stock_type": "KILOGRAM",
+      "stock_unity": 1,
+      "stock_quantity": 25,
+      "seo_url": "maca-verde-1kg",
+      "status": "ACTIVE",
+      "show_home": "NO",
+      "admin_favorite": "NO",
+      "image": {
+        "image_url": "http://poa01.datacubo.net:3030/image/3/c9ced338-cf4d-4478-85e9-a62bdd5edbf3e24c79de-edaf-4e30-803b-c4d1567da872_1618507915_thumb.jpg"
+      }
+    },
+    {
+      "id": 10,
+      "uuid": "b03f5a74-9e9b-4962-b582-d15786fb5138",
+      "code": "MAM1112213",
+      "title": "Mamão",
+      "from_amount": 0,
+      "amount": 599,
+      "stock_type": "KILOGRAM",
+      "stock_unity": 1,
+      "stock_quantity": 9,
+      "seo_url": "mamao",
+      "status": "ACTIVE",
+      "show_home": "NO",
+      "admin_favorite": "NO",
+      "image": {
+        "image_url": "http://poa01.datacubo.net:3030/image/3/a27c0701-1b58-4a2b-810a-0180c2713c391fea4348-784b-47cb-b5e1-6b82eba71e9a_1618514611_thumb.jpg"
+      }
+    },
+    {
+      "id": 7,
+      "uuid": "fca65d7b-6d2b-450c-9c02-fc0473d6f92d",
+      "code": "056789",
+      "title": "Teto branco",
+      "from_amount": 18900,
+      "amount": 16900,
+      "stock_type": "NUMERIC",
+      "stock_unity": 1,
+      "stock_quantity": 36,
+      "seo_url": "teto-branco",
+      "status": "ACTIVE",
+      "show_home": "NO",
+      "admin_favorite": "NO",
+      "image": {
+        "image_url": "http://poa01.datacubo.net:3030/image/3/c799996b-5c46-457f-a823-7ddc011f1f2b4b9bf042-d1d8-40a2-acd3-b0629504f2dd_1618507979_thumb.png"
+      }
+    },
+    {
+      "id": 11,
+      "uuid": "372e23b9-046a-43b4-83e1-fd0485b9e5b6",
+      "code": "UAM0LVGS",
+      "title": "CAFE - ",
+      "from_amount": 0,
+      "amount": 500,
+      "stock_type": "NUMERIC",
+      "stock_unity": 300,
+      "stock_quantity": 0,
+      "seo_url": "cafe-",
+      "status": "ACTIVE",
+      "show_home": "NO",
+      "admin_favorite": "NO",
+      "image": {
+        "image_url": "http://poa01.datacubo.net:3030/image/3/adf6f77c-5542-4185-96f4-1fe885fd06f3164e904d-0508-42e2-a6a5-f9d611c4b0f5_1637261117_thumb.jpg"
+      }
+    },
+    {
+      "id": 8,
+      "uuid": "116bbea8-6036-4dcd-8108-834aed01a8bb",
+      "code": "1231231",
+      "title": "dadad",
+      "from_amount": 1555,
+      "amount": 1499,
+      "stock_type": "MILILITER",
+      "stock_unity": 1,
+      "stock_quantity": 0,
+      "seo_url": "dadad",
+      "status": "ACTIVE",
+      "show_home": "NO",
+      "admin_favorite": "NO",
+      "image": {
+        "image_url": "http://poa01.datacubo.net:3030/image/3/17992501-47a6-4a4f-b07f-b4c13ab5bb73ae9115b9-9bc0-4571-a43f-dd9678beacbf_1618507768_thumb.png"
+      }
+    },
+    {
+      "id": 9,
+      "uuid": "a6934a1c-e50e-45a4-9f50-cca0b6d9f1cf",
+      "code": "MELA0002",
+      "title": "Melancia",
+      "from_amount": 0,
+      "amount": 399,
+      "stock_type": "KILOGRAM",
+      "stock_unity": 1,
+      "stock_quantity": 0,
+      "seo_url": "melancia",
+      "status": "ACTIVE",
+      "show_home": "NO",
+      "admin_favorite": "NO",
+      "image": {
+        "image_url": "http://poa01.datacubo.net:3030/image/3/ef92e2fd-1b02-403e-86c9-b1587a0e3e64e9c20c0c-9fb8-45b3-9490-e54b61eacf41_1618514751_thumb.jpg"
+      }
+    }
+  ]
+}
