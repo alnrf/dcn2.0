@@ -10,7 +10,7 @@ import ProductsHome from "../../components/productsHome/ProductsHome";
 
 import ProdData from "../../utils/mocks/productsHome.json";
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <SC.Container>
       <Sidebar />

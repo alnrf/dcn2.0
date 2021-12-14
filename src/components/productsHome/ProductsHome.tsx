@@ -6,7 +6,7 @@ import Buy from "./buttons/Buy";
 import AddOrRemove from "./buttons/AddOrRemove";
 
 function ProductsHome({ data }: any) {
-  const [itemCart, setItem] = useState("");
+  const [qtdeCart, setItem] = useState(0);
 
   return (
     <SC.Container>
@@ -25,8 +25,8 @@ function ProductsHome({ data }: any) {
             <SC.ProductName>{item.title}</SC.ProductName>
           </SC.ProductInfo>
           <SC.ButtonContainer>
-            {itemCart === "" ? (
-              <Buy buyAction={() => setItem(item + 1)} />
+            {qtdeCart === 0 ? (
+              <Buy buyAction={() => setItem(qtdeCart + 1)} />
             ) : (
               <AddOrRemove />
             )}
