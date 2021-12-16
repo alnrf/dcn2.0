@@ -6,7 +6,7 @@ import { MdLocalShipping } from "react-icons/md";
 import Churrasco from "../../assets/images/banner/churrasco.png";
 
 import Banner from "../../components/bannerHome/BannerHome";
-import ProductsHome from "../../components/productsHome/ProductsHome";
+import Products from "../../components/products/Products";
 
 import ProdData from "../../utils/mocks/productsHome.json";
 
@@ -25,7 +25,7 @@ const Home = () => {
           </SC.FreeDeliveryText>
         </SC.FreeDeliveryBar>
         <SC.ProductsContent>
-          <ProductsHome data={ProdData.product} />
+          <Products data={ProdData.product} />
         </SC.ProductsContent>
       </SC.HomeContent>
     </SC.Container>

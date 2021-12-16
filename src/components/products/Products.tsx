@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import * as SC from "./productsHome.style";
+import * as SC from "./products.style";
 import { toCurrency } from "../../utils/formatMoney";
 
 import Buy from "./buttons/Buy";
 import AddOrRemove from "./buttons/AddOrRemove";
 
-function ProductsHome({ data }: any) {
+function Products({ data }: any) {
   const [qtdeCart, setItem] = useState(0);
 
   return (
@@ -37,4 +37,4 @@ function ProductsHome({ data }: any) {
   );
 }
 
-export default ProductsHome;
+export default Products;
