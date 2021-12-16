@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import * as SC from "./productsHome.style";
+import * as SC from "./products.style";
 import { toCurrency } from "../../utils/formatMoney";
 
 import Buy from "./buttons/Buy";
 import AddOrRemove from "./buttons/AddOrRemove";
 
-function ProductsHome({ data }: any) {
-  const [itemCart, setItem] = useState("");
+function Products({ data }: any) {
+  const [qtdeCart, setItem] = useState(0);
 
   return (
     <SC.Container>
@@ -25,8 +25,8 @@ function ProductsHome({ data }: any) {
             <SC.ProductName>{item.title}</SC.ProductName>
           </SC.ProductInfo>
           <SC.ButtonContainer>
-            {itemCart === "" ? (
-              <Buy buyAction={() => setItem(item + 1)} />
+            {qtdeCart === 0 ? (
+              <Buy buyAction={() => setItem(qtdeCart + 1)} />
             ) : (
               <AddOrRemove />
             )}
@@ -37,4 +37,4 @@ function ProductsHome({ data }: any) {
   );
 }
 
-export default ProductsHome;
+export default Products;
