@@ -51,6 +51,7 @@ export const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 92px;
   padding: 0 8px;
 `;
 
