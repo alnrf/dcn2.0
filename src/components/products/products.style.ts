@@ -25,7 +25,7 @@ export const Card = styled.div`
   transition: 0.3s ease-in-out;
 
   :hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
     transform: translateY(-5px);
   }
   -webkit-user-select: none;

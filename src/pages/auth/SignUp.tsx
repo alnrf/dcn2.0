@@ -2,7 +2,7 @@ import React from "react";
 import * as SC from "./signup.style";
 
 function SignUp() {
-  return <div>SignUp</div>;
+  return <SC.Container>SignUp</SC.Container>;
 }
 
 export default SignUp;
