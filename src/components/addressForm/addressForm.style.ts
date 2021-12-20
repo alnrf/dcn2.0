@@ -81,28 +81,26 @@ export const Row = styled.div`
   width: 100%;
   background-color: #fff;
   flex-direction: row;
-  
 `;
 
 export const Button = styled.div`
-
-display: flex;
-width: 100%;
-height: 44px;
-background-color: #134b8b;
-align-items: center;
-justify-content: center;
-border-radius: 6px;
-margin: 15px 0 0 0;
-cursor: pointer;
-&:hover {
-    background-color: #466A89;
-}
-span {
+  display: flex;
+  width: 100%;
+  height: 44px;
+  background-color: #134b8b;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  margin: 15px 0 0 0;
+  cursor: pointer;
+  &:hover {
+    background-color: #466a89;
+  }
+  span {
     font-size: 15px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 18px;
-  color: #fff;
-}
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    color: #fff;
+  }
 `;

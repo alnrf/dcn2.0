@@ -19,11 +19,18 @@ function CustomerForm() {
       </SC.Row>
       {isCpf ? (
         <>
-          <SC.InputContainer>
-            <SC.Label>Nome completo</SC.Label>
-            <SC.Input type="text" name="name" nav-index="1" />
-            <SC.Error>Informe seu nome.</SC.Error>
-          </SC.InputContainer>
+          <SC.Row>
+            <SC.InputContainer style={{ marginRight: "8px" }}>
+              <SC.Label>Nome</SC.Label>
+              <SC.Input type="text" name="first_name" nav-index="1" />
+              <SC.Error>Informe seu nome.</SC.Error>
+            </SC.InputContainer>
+            <SC.InputContainer style={{ marginLeft: "8px" }}>
+              <SC.Label>Sobrenome</SC.Label>
+              <SC.Input type="text" name="last_name" nav-index="1" />
+              <SC.Error>Informe seu sobrenome.</SC.Error>
+            </SC.InputContainer>
+          </SC.Row>
           <SC.Row>
             <SC.InputContainer style={{ marginRight: "8px" }}>
               <SC.Label>CPF</SC.Label>

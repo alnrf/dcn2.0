@@ -6,6 +6,7 @@ import AddressForm from "../../components/addressForm/AddressForm";
 import DeliveryCard from "../../components/deliveryCard/DeliveryCard";
 import CustomerForm from "../../components/customerForm/CustomerForm";
 import Payment from "../../components/payment/Payment";
+import CartResume from "../../components/cartResume/CartResume";
 
 function Checkout() {
   const [isAddressFormOpen, setAddressFormOpen] = useState(false);
@@ -51,7 +52,7 @@ function Checkout() {
           <Payment />
         </SC.Step>
       </SC.StepsContainer>
-      <SC.CartResume>Resumo</SC.CartResume>
+      <CartResume />
     </SC.Container>
   );
 }

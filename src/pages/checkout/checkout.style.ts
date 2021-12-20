@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const StepsContainer = styled.div`
   display: flex;
-  width: 70%;
+  width: 60%;
   flex-direction: column;
   align-items: start;
   padding: 0 32px;
@@ -114,11 +114,13 @@ export const Circle = styled.div`
 `;
 
 
-export const CartResume = styled.div`
+export const ResumeContainer = styled.div`
   display: flex;
-  width: 30%;
+  width: 20%;
   flex-direction: column;
-  justify-content: center;
+  border: 1px solid black;
   align-items: center;
-  padding: 32px;
+  padding: 8px 16px;
+  background-color: #fff;
 `;
+

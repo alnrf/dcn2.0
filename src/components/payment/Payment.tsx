@@ -9,7 +9,9 @@ import alelo from "../../assets/logos/alelo-logo.png";
 
 function Payment() {
   const [isCredit, setIsCredit] = useState(true);
+  const [isBtnDisabled, setIsBtnDisabled] = useState(true);
   const [payment, setPayment] = useState<string>();
+
   return (
     <SC.Container>
       <SC.Title>
@@ -110,11 +112,31 @@ function Payment() {
               </>
             </TabPanel>
             <TabPanel>
-              <p>two!</p>
+              <SC.InputContainer>
+                <SC.Label>Precisa de troco? Quanto?</SC.Label>
+                <SC.Input
+                  type="text"
+                  name="change"
+                  nav-index="1"
+                  placeholder="R$ 0,00"
+                />
+              </SC.InputContainer>
             </TabPanel>
           </TabPanels>
         </Tabs>
       </>
+      <SC.AlertBox>
+        <span>Corrija seu endereço de entrega para continuar</span>
+      </SC.AlertBox>
+      {isBtnDisabled ? (
+        <SC.ButtonActive>
+          <span>Finalizar pedido</span>
+        </SC.ButtonActive>
+      ) : (
+        <SC.ButtonInactive>
+          <span>Finalizar pedido</span>
+        </SC.ButtonInactive>
+      )}
     </SC.Container>
   );
 }
