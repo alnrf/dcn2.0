@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as SC from "./product.style";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toCurrency } from "../../utils/formatMoney";
 import Buy from "../../components/products/buttons/Buy";
 import AddOrRemove from "../../components/products/buttons/AddOrRemove";
@@ -30,6 +30,7 @@ const prodData = {
 
 function Product() {
   const navigate = useNavigate();
+  const params = useParams();
 
   const [mainImg, setMainImg] = useState(prodData.images[0].url);
   const [qtdeCart, setItem] = useState(0);
@@ -45,7 +46,7 @@ function Product() {
         <SC.Product>
           <SC.ImageWraper>
             <SC.MainImage>
-              <img src={mainImg} />
+              <img src={mainImg} alt="Imagem principal" />
             </SC.MainImage>
             <SC.ThumbsImageWrap>
               {prodData?.images?.map((item: any) => (
@@ -54,7 +55,7 @@ function Product() {
                   key={item?.id}
                   onClick={() => setMainImg(item?.url)}
                 >
-                  <img src={item?.url} />
+                  <img src={item?.url} alt="Miniatura" />
                 </SC.ThumbsImage>
               ))}
             </SC.ThumbsImageWrap>

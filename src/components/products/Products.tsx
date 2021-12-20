@@ -13,7 +13,7 @@ function Products({ data }: any) {
     <SC.Container>
       {data.map((item: any) => (
         <SC.Card key={item?.uuid}>
-          <Link to={`/produto/${item?.title}`}>
+          <Link to={`/produto/${item?.id}`}>
             <SC.ImageContainer>
               <SC.Image src={item?.image?.image_url} />
             </SC.ImageContainer>

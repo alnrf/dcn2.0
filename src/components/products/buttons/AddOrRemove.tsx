@@ -3,10 +3,6 @@ import * as SC from "./button.style";
 import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 import { Icon } from "@chakra-ui/react";
 
-interface Actions {
-  increase: any;
-  decrease: any;
-}
 const AddOrRemove = () => {
   const [qtdeItem, setQtdeItem] = useState(0);
   return (

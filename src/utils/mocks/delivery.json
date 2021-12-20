@@ -1,0 +1,42 @@
+[
+  {
+    "id": 6,
+    "title": "",
+    "date": "20/12/2021",
+    "weekday": "1",
+    "weekday_name": "Segunda-feira",
+    "weekday_slug": "Seg",
+    "hour_min": "10:00",
+    "hour_max": "14:00"
+  },
+  {
+    "id": 15,
+    "title": "",
+    "date": "20/12/2021",
+    "weekday": "1",
+    "weekday_name": "Segunda-feira",
+    "weekday_slug": "Seg",
+    "hour_min": "14:00",
+    "hour_max": "17:00"
+  },
+  {
+    "id": 14,
+    "title": "",
+    "date": "21/12/2021",
+    "weekday": "2",
+    "weekday_name": "Terça-feira",
+    "weekday_slug": "Ter",
+    "hour_min": "10:00",
+    "hour_max": "14:00"
+  },
+  {
+    "id": 16,
+    "title": "",
+    "date": "21/12/2021",
+    "weekday": "2",
+    "weekday_name": "Terça-feira",
+    "weekday_slug": "Ter",
+    "hour_min": "14:00",
+    "hour_max": "17:00"
+  }
+]

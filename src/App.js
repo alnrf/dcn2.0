@@ -19,7 +19,7 @@ function App() {
         <Route path="/categoria/:id" element={<Category />} />
         <Route path="/produto/:id" element={<Product />} />
         <Route path="/ofertas/" element={<Offers />} />
-        <Route path="/checkout/" element={<Checkout />} />
+        <Route path="/carrinho/" element={<Checkout />} />
         <Route path="/login/" element={<Login />} />
         <Route path="/registre-se/" element={<SignUp />} />
         <Route path="/ajuda/" element={<Help />} />
