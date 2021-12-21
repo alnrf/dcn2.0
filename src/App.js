@@ -9,6 +9,8 @@ import SignUp from "./pages/auth/SignUp";
 import Help from "./pages/help/Help";
 import Category from "./pages/category/Category";
 import Product from "./pages/product/Product";
+import Orders from "./pages/orders/Orders";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/login/" element={<Login />} />
         <Route path="/registre-se/" element={<SignUp />} />
         <Route path="/ajuda/" element={<Help />} />
+        <Route path="/meus-pedidos/" element={<Orders />} />
+        <Route path="/perfil/" element={<Profile />} />
       </Routes>
     </Router>
   );

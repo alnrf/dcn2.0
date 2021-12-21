@@ -13,6 +13,7 @@
     "cpf-cnpj-validator": "^1.0.3",
     "framer-motion": "^4",
     "history": "5",
+    "moment": "^2.29.1",
     "moment-timezone": "^0.5.34",
     "react": "^17.0.2",
     "react-copy-to-clipboard": "^5.0.4",
