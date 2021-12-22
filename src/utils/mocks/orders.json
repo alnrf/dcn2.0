@@ -1,28 +1,26 @@
-{
-  "orders": [
-    {
-      "id": 18,
-      "uuid": "ccc338ff-7321-44b3-8fd5-f8f6706f5f78",
-      "nr": 18,
-      "type": "DELIVERY",
-      "delivery_date_min": "2021-12-21T00:56:57.204Z",
-      "delivery_date_max": "2021-12-21T14:00:00.000Z",
-      "total_amount": 4188,
-      "status": "COMPLETED",
-      "created_at": "2021-12-20T21:05:56.815Z",
-      "updated_at": "2021-12-21T00:56:57.204Z"
-    },
-    {
-      "id": 17,
-      "uuid": "a92b097d-6941-4137-8e12-4d2cbc59b097",
-      "nr": 17,
-      "type": "DELIVERY",
-      "delivery_date_min": "2021-12-21T10:00:00.000Z",
-      "delivery_date_max": "2021-12-21T14:00:00.000Z",
-      "total_amount": 4188,
-      "status": "DELIVERING",
-      "created_at": "2021-12-20T20:59:04.543Z",
-      "updated_at": "2021-12-20T20:59:04.543Z"
-    }
-  ]
-}
+[
+  {
+    "id": 17,
+    "uuid": "a92b097d-6941-4137-8e12-4d2cbc59b097",
+    "nr": 17,
+    "type": "DELIVERY",
+    "delivery_date_min": "2021-12-21T10:00:00.000Z",
+    "delivery_date_max": "2021-12-21T14:00:00.000Z",
+    "total_amount": 4188,
+    "status": "DELIVERING",
+    "created_at": "2021-12-20T20:59:04.543Z",
+    "updated_at": "2021-12-20T20:59:04.543Z"
+  },
+  {
+    "id": 18,
+    "uuid": "ccc338ff-7321-44b3-8fd5-f8f6706f5f78",
+    "nr": 18,
+    "type": "DELIVERY",
+    "delivery_date_min": "2021-12-21T00:56:57.204Z",
+    "delivery_date_max": "2021-12-21T14:00:00.000Z",
+    "total_amount": 4188,
+    "status": "COMPLETED",
+    "created_at": "2021-12-20T21:05:56.815Z",
+    "updated_at": "2021-12-21T00:56:57.204Z"
+  }
+]

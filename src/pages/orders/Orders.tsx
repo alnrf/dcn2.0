@@ -1,21 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import * as SC from "./orders.style";
 import ProfileMenu from "../../components/profileMenu/ProfileMenu";
+import Stepper from "../../components/stepper/Stepper";
 import { getOrderStatus } from "../../utils/getOrderStatus";
 import { formatDate, formatTime } from "../../utils/formatDateAndTime";
 import orders from "../../utils/mocks/orders.json";
+import order from "../../utils/mocks/order.json";
 import { toCurrency } from "../../utils/formatMoney";
 
 function Orders() {
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleSelect = ({ id }: any) => {
+    if (id === selectedItem) {
+      setSelectedItem(null);
+    } else {
+      setSelectedItem(id);
+    }
+  };
+
+  const getPaymentMethod = (method: string) => {
+    switch (method) {
+      case "CARD_CREDIT":
+        return "Crédito";
+      case "CARD_DEBIT":
+        return "Débito";
+      case "MONEY":
+        return "Dinheiro";
+    }
+  };
+
   return (
     <SC.Container>
       <ProfileMenu page="orders" />
       <SC.MyOrdersContainer>
-        <SC.MyOrderTitle>
+        <SC.Title>
           <span>Meus pedidos</span>
-        </SC.MyOrderTitle>
-        {orders.orders.map((item: any) => (
-          <SC.MyOrderCard key={item?.uuid}>
+        </SC.Title>
+        {orders?.map((item: any) => (
+          <SC.MyOrderCard
+            key={item?.id}
+            style={{
+              borderColor:
+                selectedItem === item?.id ? "#144c8b" : "transparent",
+            }}
+            onClick={() => handleSelect(item)}
+          >
             <SC.CardHeader>
               <SC.Order>
                 Pedido:<SC.OrderNumber>{`#${item?.nr}`}</SC.OrderNumber>
@@ -26,29 +56,125 @@ function Orders() {
             </SC.CardHeader>
             <SC.OrderInfo>
               <SC.Row>
-                <SC.Text>Data do pedido:</SC.Text>
-                <SC.Text>{formatDate(item?.created_at)}</SC.Text>
+                <SC.MyOrderText>Data do pedido:</SC.MyOrderText>
+                <SC.MyOrderText>{formatDate(item?.created_at)}</SC.MyOrderText>
               </SC.Row>
               <SC.Row>
-                <SC.Text>Horário de entrega:</SC.Text>
+                <SC.MyOrderText>Horário de entrega:</SC.MyOrderText>
                 <SC.Col>
-                  <SC.Text>{formatDate(item?.delivery_date_max)}</SC.Text>
-                  <SC.Text>{`${formatTime(
+                  <SC.MyOrderText>
+                    {formatDate(item?.delivery_date_max)}
+                  </SC.MyOrderText>
+                  <SC.MyOrderText>{`${formatTime(
                     item?.delivery_date_min
-                  )} - ${formatTime(item?.delivery_date_max)}`}</SC.Text>
+                  )} - ${formatTime(item?.delivery_date_max)}`}</SC.MyOrderText>
                 </SC.Col>
               </SC.Row>
               <SC.Row>
-                <SC.TextBold>Valor total:</SC.TextBold>
-                <SC.TextBold>{`R$ ${toCurrency(
+                <SC.MyOrderTextBold>Valor total:</SC.MyOrderTextBold>
+                <SC.MyOrderTextBold>{`R$ ${toCurrency(
                   item?.total_amount
-                )}`}</SC.TextBold>
+                )}`}</SC.MyOrderTextBold>
               </SC.Row>
             </SC.OrderInfo>
           </SC.MyOrderCard>
         ))}
       </SC.MyOrdersContainer>
-      <SC.OrderDetailContainer></SC.OrderDetailContainer>
+      <SC.OrderDetailContainer>
+        <SC.DetailHeader>
+          <span>Detalhe do pedido</span>
+        </SC.DetailHeader>
+        <SC.InfoWrap>
+          <SC.AddressAndPayment>
+            <SC.DetailTextBold>Endereço de entrega</SC.DetailTextBold>
+            <SC.DetailTextBoldGray>
+              {order?.address?.title}
+            </SC.DetailTextBoldGray>
+            <SC.AddressWrap>
+              <SC.DetailText>
+                {order?.address?.street_name}
+                {", "}
+                {order?.address?.number}
+                {order?.address?.complement
+                  ? ` - ${order?.address?.complement}`
+                  : ""}
+              </SC.DetailText>
+              <SC.DetailText>
+                {order?.address?.neighbor}
+                {" - "}
+                {order?.address?.city}
+              </SC.DetailText>
+              <SC.DetailText>{order?.address?.state}</SC.DetailText>
+            </SC.AddressWrap>
+            <SC.DetailTextBold>Forma de Pagamento</SC.DetailTextBold>
+            <SC.DetailText>
+              {getPaymentMethod(order?.payment?.payment_mode)}
+
+              {order?.payment?.payment_mode !== "MONEY"
+                ? ` - ${order?.payment?.card_brand}`
+                : ""}
+            </SC.DetailText>
+          </SC.AddressAndPayment>
+          <SC.Prices>
+            <SC.Row>
+              <SC.ResumeValuesText style={{ color: "#77798c" }}>
+                Subtotal
+              </SC.ResumeValuesText>
+              <SC.ResumeValuesText
+                style={{ color: "#0d1136" }}
+              >{`R$ ${toCurrency(
+                order?.subtotal_amount
+              )}`}</SC.ResumeValuesText>
+            </SC.Row>
+            <SC.Row>
+              <SC.ResumeValuesText style={{ color: "#77798c" }}>
+                Desconto
+              </SC.ResumeValuesText>
+              <SC.ResumeValuesText
+                style={{ color: "#0d1136" }}
+              >{`R$ ${toCurrency(
+                order?.discount_amount
+              )}`}</SC.ResumeValuesText>
+            </SC.Row>
+            <SC.Row>
+              <SC.ResumeValuesText style={{ color: "#77798c" }}>
+                Troco para
+              </SC.ResumeValuesText>
+              <SC.ResumeValuesText
+                style={{ color: "#0d1136" }}
+              >{`R$ ${toCurrency(
+                order?.payment?.change_amount
+              )}`}</SC.ResumeValuesText>
+            </SC.Row>
+            <SC.Row>
+              <SC.ResumeValuesText style={{ color: "#77798c" }}>
+                Taxa de entrega
+              </SC.ResumeValuesText>
+              <SC.ResumeValuesText
+                style={{ color: "#0d1136" }}
+              >{`R$ ${toCurrency(
+                order?.delivery_fee_amount
+              )}`}</SC.ResumeValuesText>
+            </SC.Row>
+            <SC.Row>
+              <SC.DetailTextBold>Total</SC.DetailTextBold>
+              <SC.DetailTextBold style={{ color: "#0d1136" }}>{`R$ ${toCurrency(
+                order?.total_amount
+              )}`}</SC.DetailTextBold>
+            </SC.Row>
+          </SC.Prices>
+        </SC.InfoWrap>
+        <SC.StepperContainer>
+          <Stepper status={order?.status} />
+        </SC.StepperContainer>
+        <SC.ProductTableHeader>Table</SC.ProductTableHeader>
+        <SC.ProductList>Produtos</SC.ProductList>
+        <SC.ButtonContainer>
+          <SC.Button>
+            <span>Solicitar Cancelamento</span>
+          </SC.Button>
+        </SC.ButtonContainer>
+      </SC.OrderDetailContainer>
     </SC.Container>
   );
 }
