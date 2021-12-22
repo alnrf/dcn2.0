@@ -1,0 +1,91 @@
+{
+  "id": 21,
+  "customer_id": 15,
+  "platform_id": 3,
+  "uuid": "e63cee26-a43e-4828-8693-c43cfb412e2f",
+  "nr": 21,
+  "type": "DELIVERY",
+  "shipping_amount": 0,
+  "delivery_amount": 2000,
+  "delivery_date_min": "2021-12-22T10:00:00.000Z",
+  "delivery_date_max": "2021-12-22T14:00:00.000Z",
+  "delivery_fee_amount": 2000,
+  "delivery_min_free_amount": 15000,
+  "discount_amount": 0,
+  "subtotal_amount": 4376,
+  "total_amount": 6376,
+  "status": "COMPLETED",
+  "created_at": "2021-12-21T22:59:24.821Z",
+  "updated_at": "2021-12-21T22:59:24.821Z",
+  "products": [
+    {
+      "id": 12,
+      "title": "cfa",
+      "amount": 1000,
+      "quantity": 2,
+      "stock_unity": 0,
+      "quantity_type": "LITER",
+      "total_amount": 2000,
+      "image": "/image/3/c35f6a19-e72a-4031-b10a-6fea3a3ee9c69dae9427-b784-4121-9a55-66c99360f9ed_1637261170_thumb.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Maça Verde 1kg",
+      "amount": 589,
+      "quantity": 2,
+      "stock_unity": 1,
+      "quantity_type": "KILOGRAM",
+      "total_amount": 1178,
+      "image": "/image/3/c9ced338-cf4d-4478-85e9-a62bdd5edbf3e24c79de-edaf-4e30-803b-c4d1567da872_1618507915_thumb.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Mamão",
+      "amount": 599,
+      "quantity": 2,
+      "stock_unity": 1,
+      "quantity_type": "KILOGRAM",
+      "total_amount": 1198,
+      "image": "/image/3/a27c0701-1b58-4a2b-810a-0180c2713c391fea4348-784b-47cb-b5e1-6b82eba71e9a_1618514611_thumb.jpg"
+    }
+  ],
+  "payment": {
+    "id": 21,
+    "uuid": "e75fe290-a039-47c1-bef0-f4d17ec16e9e",
+    "processor": "MANUAL",
+    "card_brand": null,
+    "payment_mode": "MONEY",
+    "amount": 6376,
+    "change_amount": 20000,
+    "installments": 1,
+    "payment_data": null,
+    "meta_id": null,
+    "gateway_id": null,
+    "status": "CREATED",
+    "created_at": "2021-12-21T22:59:24.826Z",
+    "updated_at": "2021-12-21T22:59:24.826Z"
+  },
+  "customer": {
+    "phone_number": "41999999996",
+    "email_address": "allanrfa85@gmail.com",
+    "first_name": "Allan",
+    "last_name": "",
+    "full_name": "Allan R",
+    "social_name": null
+  },
+  "address": {
+    "title": "Casa",
+    "zipcode": "95625-000",
+    "street_name": "Rua Alfredo José Pinto",
+    "number": "1640",
+    "complement": "Apartamento 8",
+    "neighbor": "Fazendinha",
+    "city": "Imbé",
+    "city_id": 4810,
+    "state": "Rio Grande do Sul",
+    "state_id": 21,
+    "country": null,
+    "lat": null,
+    "lng": null
+  }
+}
