@@ -282,12 +282,42 @@ export const ProductTableHeader = styled.div`
   display: flex;
   width: 100%;
   height: 36px;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify_content: center;
+  justify-content: center;
   background-color: #f7f7f7;
   border-bottom: 1px solid #f1f1f1;
+  padding: 16px;
 `;
+
+export const ProductTitleItem = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  padding: 
+  background-color: #f7f7f7;
+  font-size: 13px;
+  font-style: normal;
+  line-height: 20px;
+  font-weight: 700;
+  color: #0d1136;
+`;
+export const ProductTitleQttyPrice = styled.div`
+  display: flex;
+  width: 40%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  font-size: 13px;
+  font-style: normal;
+  line-height: 20px;
+  font-weight: 700;
+  color: #0d1136;
+`;
+
 
 export const ProductList = styled.div`
   display: flex;
@@ -295,14 +325,15 @@ export const ProductList = styled.div`
   flex-direction: column;
   background-color: #fff;
   border-bottom: 1px solid #f1f1f1;
+  padding: 16px;
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   width: 100%;
- align-items: center;
- justify-content: center;
-margin: 16px 0;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0;
   background-color: #fff;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -318,14 +349,62 @@ export const Button = styled.div`
   padding: 0 16px;
   background-color: #ea4d4a;
   cursor: pointer;
-span {
+  span {
     font-size: 15px;
     font-style: normal;
     line-height: 23px;
     font-weight: 700;
     color: #fff;
-}
+  }
   &:hover {
     background-color: #ff5b60;
   }
+`;
+
+export const ProductWrapRow = styled.div`
+display: flex;
+width: 100%;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+background-color: #fff;
+margin: 0 0 16px 0;
+`;
+
+export const ProductWrapQttyPrice = styled.div`
+  display: flex;
+  width: 40%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  font-size: 13px;
+  font-style: normal;
+  line-height: 20px;
+  font-weight: 700;
+  color: #0d1136;
+`;
+
+export const ProductWrapItem = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: left;
+  justify-content: start;
+  background-color: #fff;
+`;
+export const WrapCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  background-color: #fff;
+  margin: 0 0 0 16px;
+`;
+export const ProductImage = styled.img`
+  width: 75px;
+  height: 75px;
+  display: flex;
+  object-fit: fill;
+  border-radius: 6px;
 `;

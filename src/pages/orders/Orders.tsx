@@ -167,12 +167,43 @@ function Orders() {
         <SC.StepperContainer>
           <Stepper status={order?.status} />
         </SC.StepperContainer>
-        <SC.ProductTableHeader>Table</SC.ProductTableHeader>
-        <SC.ProductList>Produtos</SC.ProductList>
+        <SC.ProductTableHeader>
+          <SC.ProductTitleItem>Itens</SC.ProductTitleItem>
+          <SC.ProductTitleQttyPrice>Quantidade</SC.ProductTitleQttyPrice>
+          <SC.ProductTitleQttyPrice>Preço</SC.ProductTitleQttyPrice>
+        </SC.ProductTableHeader>
+        <SC.ProductList>
+          {order?.products?.map((item: any) => (
+            <SC.ProductWrapRow key={item?.id}>
+              <SC.ProductWrapItem>
+                <SC.ProductImage
+                  src={`http://poa01.datacubo.net:3030/${item?.image}`}
+                />
+                <SC.WrapCol>
+                  <SC.DetailTextBold>{item?.title}</SC.DetailTextBold>
+                  <SC.DetailText>
+                    {item?.stock_unity} {item?.quantity_type}
+                  </SC.DetailText>
+                  <SC.MyOrderText>{`R$ ${toCurrency(
+                    item?.amount
+                  )}`}</SC.MyOrderText>
+                </SC.WrapCol>
+              </SC.ProductWrapItem>
+              <SC.ProductWrapQttyPrice>
+                {item?.quantity}
+              </SC.ProductWrapQttyPrice>
+              <SC.ProductWrapQttyPrice>{`R$ ${toCurrency(
+                item?.total_amount
+              )}`}</SC.ProductWrapQttyPrice>
+            </SC.ProductWrapRow>
+          ))}
+        </SC.ProductList>
         <SC.ButtonContainer>
-          <SC.Button>
-            <span>Solicitar Cancelamento</span>
-          </SC.Button>
+          {order?.status !== "DELIVERING" && order?.status !== "COMPLETED" && (
+            <SC.Button>
+              <span>Solicitar Cancelamento</span>
+            </SC.Button>
+          )}
         </SC.ButtonContainer>
       </SC.OrderDetailContainer>
     </SC.Container>
