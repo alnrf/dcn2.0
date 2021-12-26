@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export const HeaderWrapper = styled.div`
   display: flex;
+  position: relative;
   width: 100%;
   background-color: #ffffff;
   padding: 16px 24px 16px 24px;

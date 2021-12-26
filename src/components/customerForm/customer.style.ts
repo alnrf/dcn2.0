@@ -55,7 +55,6 @@ export const Input = styled.input`
 
 export const PasswordWrap = styled.div`
   display: flex;
-
   height: 48px;
   flex-direction: row;
   align-items: center;
@@ -102,11 +101,9 @@ export const Button = styled.div<Prop>`
     margin: 0 0 0 16px;
   }
 
-  span {
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 18px;
-    color: #fff;
-  }
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  color: #0d1136;
 `;
