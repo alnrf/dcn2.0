@@ -215,24 +215,14 @@ line-height: 18px;
 color: #424561;
 `;
 
+
+
 export const AddAddressBtn = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: end;
-  background-color: #fff;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid black;
-`;
-
-
-export const AddressTxtBtn = styled.div`
-  display: flex;
-  width: 100%;
   background-color: #fff;
   font-size: 13px;
   font-style: normal;

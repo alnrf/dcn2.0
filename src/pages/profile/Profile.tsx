@@ -101,7 +101,7 @@ function Profile() {
           <SC.AddAddressBtn
             onClick={() => setAddressFormOpen(!isAddressFormOpen)}
           >
-            <SC.AddressTxtBtn>+ Adicionar endereço</SC.AddressTxtBtn>
+            + Adicionar endereço
           </SC.AddAddressBtn>
         </SC.FieldRow>
         <SC.FormContainer>
