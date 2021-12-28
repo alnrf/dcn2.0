@@ -5,7 +5,6 @@ import Home from "./pages/home/Home";
 import Offers from "./pages/offers/Offers";
 import Checkout from "./pages/checkout/Checkout";
 import Login from "./pages/auth/Login";
-import SignUp from "./pages/auth/SignUp";
 import Help from "./pages/help/Help";
 import Category from "./pages/category/Category";
 import Product from "./pages/product/Product";
@@ -23,7 +22,6 @@ function App() {
         <Route path="/ofertas/" element={<Offers />} />
         <Route path="/carrinho/" element={<Checkout />} />
         <Route path="/login/" element={<Login />} />
-        <Route path="/registre-se/" element={<SignUp />} />
         <Route path="/ajuda/" element={<Help />} />
         <Route path="/meus-pedidos/" element={<Orders />} />
         <Route path="/perfil/" element={<Profile />} />
