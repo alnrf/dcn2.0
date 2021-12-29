@@ -8,7 +8,7 @@ export const WrapSearch = styled.div`
   width: 100%;
   height: 48px;
   margin: 0 40px;
-  borderRadius: 5px;
+  border-radius: 5px;
 `;
 
 export const Input = styled.input`
@@ -17,10 +17,14 @@ export const Input = styled.input`
   border: none;
   background-color: var(--background);
   height: 48px;
-  font-family: "Lato", sans-serif;
+
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
   padding: 0 0 0 8px;
+  &:focus {
+    border-color: var(--background);
+    outline: none !important;
+  }
 `;

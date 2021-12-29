@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export const HeaderWrapper = styled.div`
   display: flex;
   width: 100%;
+  height: 128px;
   position: relative;
   flex-direction: row;
   background-color: #ffffff;
