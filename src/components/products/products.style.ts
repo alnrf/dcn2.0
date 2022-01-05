@@ -1,14 +1,28 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+display: flex;
+justify-content: center;
+width: 100%;
+-webkit-user-select: none;
+-ms-user-select: none;
+user-select: none;
+background-color: #fff;
+
+`;
+
+export const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(6,1fr);
   grid-auto-rows: max-content;
   grid-gap: 10px;
-  width: 100%;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  @media (min-width: 1921px) {    
+    grid-template-columns: repeat(8,1fr);
+  }
 `;
 
 export const Card = styled.div`

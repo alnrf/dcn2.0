@@ -30,9 +30,9 @@ export const LogoBox = styled.span(
 );
 
 export const LogoImage = styled.img`
-  display: block,
-  backfaceVisibility: hidden,
-  maxWidth: 150,
+  display: block;
+  backfaceVisibility: hidden;
+  width: 115px,
 `;
 
 export const LinkWrap = styled.div`

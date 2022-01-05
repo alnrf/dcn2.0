@@ -1,11 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 738px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #f7f7f7;
+`;
+
+export const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: max-content;
   grid-gap: 32px;
-  width: 100%;
   min-height: 738px;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -42,17 +52,22 @@ export const OfferInfo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 90%;
   height: 54px;
-  padding: 0 8px;
+  padding: 0 16px;
   margin: 1px 16px;
   background-color: #fff;
   border: 1px solid #f1f1f1;
   border-radius: 6px;
 `;
 
-export const OfferCoupon = styled.span`
+export const OfferCoupon = styled.div`
+display: flex;
+width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   font-size: 15px;
   font-weight: 400;
   line-height: 23px;
@@ -64,10 +79,8 @@ export const OfferCoupon = styled.span`
 export const CopyButton = styled.div`
   display: flex;
   height: 32px;
-  width: 100%;
   align-items: center;
-  justify-content: space_between;
-  padding: 0 8px;
+  justify-content: center;
   background-color: #fff;
   font-size: 15px;
   font-weight: 700;
@@ -75,5 +88,5 @@ export const CopyButton = styled.div`
   font-style: normal;
   color: #134b8b;
   cursor: pointer;
-  boder: 1px solid black;
+  
 `;

@@ -11,34 +11,36 @@ function Products({ data }: any) {
 
   return (
     <SC.Container>
-      {data.map((item: any) => (
-        <SC.Card key={item?.uuid}>
-          <Link to={`/produto/${item?.id}`}>
-            <SC.ImageContainer>
-              <SC.Image src={item?.image?.image_url} />
-            </SC.ImageContainer>
-            <SC.ProductInfo>
-              <SC.OldPrice>
-                {item?.from_amount > 0
-                  ? `De: R$${toCurrency(item?.from_amount)}`
-                  : ""}
-              </SC.OldPrice>
-              <SC.Price>
-                {item?.from_amount > 0 ? "Por: R$" : "R$"}
-                {toCurrency(item?.amount)}
-              </SC.Price>
-              <SC.ProductName>{item?.title}</SC.ProductName>
-            </SC.ProductInfo>
-          </Link>
-          <SC.ButtonContainer>
-            {qtdeCart === 0 ? (
-              <Buy buyAction={() => setItem(qtdeCart + 1)} />
-            ) : (
-              <AddOrRemove />
-            )}
-          </SC.ButtonContainer>
-        </SC.Card>
-      ))}
+      <SC.Grid>
+        {data.map((item: any) => (
+          <SC.Card key={item?.uuid}>
+            <Link to={`/produto/${item?.id}`}>
+              <SC.ImageContainer>
+                <SC.Image src={item?.image?.image_url} />
+              </SC.ImageContainer>
+              <SC.ProductInfo>
+                <SC.OldPrice>
+                  {item?.from_amount > 0
+                    ? `De: R$${toCurrency(item?.from_amount)}`
+                    : ""}
+                </SC.OldPrice>
+                <SC.Price>
+                  {item?.from_amount > 0 ? "Por: R$" : "R$"}
+                  {toCurrency(item?.amount)}
+                </SC.Price>
+                <SC.ProductName>{item?.title}</SC.ProductName>
+              </SC.ProductInfo>
+            </Link>
+            <SC.ButtonContainer>
+              {qtdeCart === 0 ? (
+                <Buy buyAction={() => setItem(qtdeCart + 1)} />
+              ) : (
+                <AddOrRemove />
+              )}
+            </SC.ButtonContainer>
+          </SC.Card>
+        ))}
+      </SC.Grid>
     </SC.Container>
   );
 }
