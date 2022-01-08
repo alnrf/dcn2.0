@@ -94,13 +94,13 @@
       "id": 8,
       "uuid": "116bbea8-6036-4dcd-8108-834aed01a8bb",
       "code": "1231231",
-      "title": "dadad",
+      "title": "Tomate",
       "from_amount": 1555,
       "amount": 1499,
       "stock_type": "MILILITER",
       "stock_unity": 1,
       "stock_quantity": 0,
-      "seo_url": "dadad",
+      "seo_url": "tomate",
       "status": "ACTIVE",
       "show_home": "NO",
       "admin_favorite": "NO",
@@ -124,6 +124,60 @@
       "admin_favorite": "NO",
       "image": {
         "image_url": "http://poa01.datacubo.net:3030/image/3/ef92e2fd-1b02-403e-86c9-b1587a0e3e64e9c20c0c-9fb8-45b3-9490-e54b61eacf41_1618514751_thumb.jpg"
+      }
+    },
+    {
+      "id": 10,
+      "uuid": "a6934a1c-e50e-45a4-9f50-cca0b629f1cf",
+      "code": "MELA0002",
+      "title": "Arroz Tio João",
+      "from_amount": 0,
+      "amount": 399,
+      "stock_type": "KILOGRAM",
+      "stock_unity": 1,
+      "stock_quantity": 0,
+      "seo_url": "arroz",
+      "status": "ACTIVE",
+      "show_home": "NO",
+      "admin_favorite": "NO",
+      "image": {
+        "image_url": "https://carrefourbr.vtexassets.com/arquivos/ids/203188/115657_1.jpg?v=637272452216400000"
+      }
+    },
+    {
+      "id": 11,
+      "uuid": "a6934a1c-e50e-45a4-2f50-cca0b6d9f1cf",
+      "code": "MELA0002",
+      "title": "Feijão Carioca",
+      "from_amount": 0,
+      "amount": 399,
+      "stock_type": "KILOGRAM",
+      "stock_unity": 1,
+      "stock_quantity": 0,
+      "seo_url": "feijao-carioca",
+      "status": "ACTIVE",
+      "show_home": "NO",
+      "admin_favorite": "NO",
+      "image": {
+        "image_url": "https://caldobom.vteximg.com.br/arquivos/ids/155552-1000-1000/feijao-carioca-caldo-bom-selecao-especial-500g.jpg?v=637202212299500000"
+      }
+    },
+    {
+      "id": 12,
+      "uuid": "a6934a1c-e50e-25a4-9f50-cca0b6d9f1cf",
+      "code": "MELA0002",
+      "title": "Salgadinho",
+      "from_amount": 0,
+      "amount": 399,
+      "stock_type": "KILOGRAM",
+      "stock_unity": 1,
+      "stock_quantity": 0,
+      "seo_url": "salgadinho",
+      "status": "ACTIVE",
+      "show_home": "NO",
+      "admin_favorite": "NO",
+      "image": {
+        "image_url": "https://a-static.mlcdn.com.br/1500x1500/salgadinho-stiksy-48g-elma-chips/maniapingodemel/3893p/49d4176f7aff42bcf582638453783f1e.jpg"
       }
     }
   ]

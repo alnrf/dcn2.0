@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export const HeaderWrapper = styled.div`
   display: flex;
   width: 100%;
+  height: 128px;
   position: relative;
   flex-direction: row;
   background-color: #ffffff;
@@ -29,9 +30,9 @@ export const LogoBox = styled.span(
 );
 
 export const LogoImage = styled.img`
-  display: block,
-  backfaceVisibility: hidden,
-  maxWidth: 150,
+  display: block;
+  backfaceVisibility: hidden;
+  width: 115px,
 `;
 
 export const LinkWrap = styled.div`

@@ -6,7 +6,7 @@ export const Sidebar = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: max-content;
   grid-gap: 10px;
-  width: 350px;
+  width: 300px;
 `;
 
 export const CardItem = styled.div`

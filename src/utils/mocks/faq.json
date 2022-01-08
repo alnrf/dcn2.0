@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Como entrar em contato com o Atendimento ao Cliente?",
+    "text": "Nossa Equipe de Experiência do Cliente está disponível 7 dias por semana e oferecemos 2 maneiras de entrar em contato. E-mail e Chat. Tentamos responder rapidamente, para que você não precise esperar muito por uma resposta!"
+  },
+  {
+    "id": 2,
+    "title": "A instalação do aplicativo falhou, como atualizar as informações do sistema?",
+    "text": "Por favor, leia a documentação com atenção. Também temos alguns tutoriais em vídeo online sobre esse assunto. Se o problema persistir, abra um tíquete no fórum de suporte."
+  },
+  {
+    "id": 3,
+    "title": "Resposta do site demorando, como melhorar?",
+    "text": "Em primeiro lugar, verifique sua conexão com a Internet. Também temos alguns tutoriais em vídeo online sobre esse assunto. Se o problema persistir, abra um tíquete no fórum de suporte."
+  },
+  {
+    "id": 4,
+    "title": "Como faço para criar uma conta?",
+    "text": "Se você deseja abrir uma conta para uso pessoal, pode fazê-lo por telefone ou online. Abrir uma conta online deve levar apenas alguns minutos."
+  }
+]

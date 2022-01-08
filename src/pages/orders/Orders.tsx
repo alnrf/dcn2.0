@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as SC from "./orders.style";
 import ProfileMenu from "../../components/profileMenu/ProfileMenu";
 import Stepper from "../../components/stepper/Stepper";

@@ -25,12 +25,28 @@ const prodData = {
       id: 2,
       url: "http://poa01.datacubo.net:3030/image/3/6441e465-f35d-4879-b628-bd637e205f3c9fbe23b2-f95b-4aec-bda9-d10f1cce6af2_1618508148_thumb.jpg",
     },
+    {
+      id: 3,
+      url: "https://hiperideal.vteximg.com.br/arquivos/ids/167668-1000-1000/30619.jpg?v=636615816174370000",
+    },
+    {
+      id: 4,
+      url: "https://www.infoescola.com/wp-content/uploads/2011/01/tomate_345187874.jpg",
+    },
+    {
+      id: 5,
+      url: "http://d3ugyf2ht6aenh.cloudfront.net/stores/746/397/products/tomate-longa-vida1-e12545f3c4985942a915417674167711-640-0.png",
+    },
+    {
+      id: 6,
+      url: "https://assets.yara.com/48f316f2dec24d948cf50af42d4bebd7.jpg",
+    },
   ],
 };
 
 function Product() {
   const navigate = useNavigate();
-  const params = useParams();
+  // const params = useParams();
 
   const [mainImg, setMainImg] = useState(prodData.images[0].url);
   const [qtdeCart, setItem] = useState(0);
