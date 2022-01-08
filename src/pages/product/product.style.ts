@@ -8,21 +8,18 @@ export const Container = styled.div`
   width: 100%;
   justify-content: center;
   min-height: 768px;
-  padding: 32px 16px;
+  padding: 16px;
 `;
 
 export const Content = styled.div`
   display: flex;
-  width: 70%;
+  width: 90%;
   flex-direction: column;
   align-items: center;
   height: auto;
   margin: 8px 8px;
-  box-shadow: 0px 2px 19px 1px rgba(10, 10, 10, 0.44);
-  -webkit-box-shadow: 0px 2px 19px 1px rgba(10, 10, 10, 0.44);
-  -moz-box-shadow: 0px 2px 19px 1px rgba(10, 10, 10, 0.44);
-  border-radius: 6px;
-  padding: 16px;
+ border: 1px solid #f0f0f0
+;  padding: 16px;
 `;
 
 export const LinkBarWrap = styled.div`
@@ -44,7 +41,7 @@ export const Product = styled.div`
 export const ImageWraper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 60%;
   align-items: center;
   justify-content: center;
 `;
@@ -148,6 +145,7 @@ export const Description = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
+
 `;
 
 export const DescriptionTitle = styled.span`
@@ -193,5 +191,7 @@ export const ButtonTxt = styled.span`
 `;
 
 export const BuyButtonArea = styled.div`
+display: flex;
 
+margin: 24px 0 0 0;
 `;

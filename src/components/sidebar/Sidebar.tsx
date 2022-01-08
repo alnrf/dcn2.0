@@ -9,12 +9,12 @@ const Sidebar: React.FC = () => {
   return (
     <SC.Sidebar>
       {category.map((item) => (
-        <Link to={`/categoria/${item.seo_url}`}>
-          <SC.CardItem key={item.id}>
+        <Link to={`/categoria/${item.seo_url}`} key={item?.id}>
+          <SC.CardItem>
             <SC.BoxIcon>
-              <Icon as={getIcon(item.icon)} fontSize="30px" color="#212121" />
+              <Icon as={getIcon(item?.icon)} fontSize="40px" color="#212121" />
             </SC.BoxIcon>
-            <SC.Title>{item.title}</SC.Title>
+            <SC.Title>{item?.title}</SC.Title>
           </SC.CardItem>
         </Link>
       ))}

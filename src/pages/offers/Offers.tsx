@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as SC from "./offers.style";
 import offers from "../../utils/mocks/offers.json";
 import CopyToClipboard from "react-copy-to-clipboard";
@@ -8,17 +8,6 @@ function Offers() {
     value: "",
     copied: false,
   });
-
-  useEffect(() => {
-    if (copyText.copied) {
-      setTimeout(() => {
-        setCopyText({
-          ...copyText,
-          copied: false,
-        });
-      }, 3500);
-    }
-  }, [copyText.copied]);
 
   return (
     <SC.Container>
@@ -30,7 +19,6 @@ function Offers() {
             </SC.ImageContainer>
             <SC.OfferInfo>
               <SC.OfferCoupon>{item?.code}</SC.OfferCoupon>
-
               <CopyToClipboard
                 text={item?.code}
                 onCopy={() =>

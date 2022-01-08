@@ -15,7 +15,6 @@ export { Face } from './Face';
 export { Eyes } from './Eyes';
 export { Lips } from './Lips';
 export { Snacks } from './Snacks';
-export { PetCare } from './PetCare';
 export { HomeCleaning } from './HomeCleaning';
 export { Dairy } from './Dairy';
 export { Cooking } from './Cooking';

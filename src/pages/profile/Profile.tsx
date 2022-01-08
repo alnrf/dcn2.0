@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as SC from "./profile.style";
 import ProfileMenu from "../../components/profileMenu/ProfileMenu";
-import AddressCard from "../../components/addressCard/AddressCard";
 
 import data from "../../utils/mocks/addresses.json";
 

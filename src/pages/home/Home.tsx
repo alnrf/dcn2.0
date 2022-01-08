@@ -9,6 +9,7 @@ import Banner from "../../components/bannerHome/BannerHome";
 import Products from "../../components/products/Products";
 
 import ProdData from "../../utils/mocks/productsHome.json";
+import CartSideBar from "../../components/cartSideBar/CartSideBar";
 
 const Home = () => {
   return (
@@ -28,6 +29,7 @@ const Home = () => {
           <Products data={ProdData.product} />
         </SC.ProductsContent>
       </SC.HomeContent>
+      <CartSideBar />
     </SC.Container>
   );
 };
