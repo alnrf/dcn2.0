@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import * as SC from "./cartSideBar.style";
 import { Icon } from "@chakra-ui/react";
 import { RiHandbagFill, RiCloseFill } from "react-icons/ri";
+import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
+import { MdDeleteForever } from "react-icons/md";
 import { NoCartBag } from "../../assets/icons/NoCartBag";
-import { Link } from "react-router-dom";
+import Items from "../../utils/mocks/cart.json";
+import { toCurrency } from "../../utils/formatMoney";
 
 function CartSideBar() {
   const [isOpenSideBar, setIsOpenSideBar] = useState(false);
@@ -36,10 +39,47 @@ function CartSideBar() {
             </SC.CloseButton>
           </SC.RowWrap>
           <SC.ItemListWrap>
-            <SC.NoProductWrap>
-              <NoCartBag />
-              <SC.NoProductText>Nenhum produto encontrado.</SC.NoProductText>
-            </SC.NoProductWrap>
+            {Items.length > 0 ? (
+              <>
+                {Items.map((item: any) => (
+                  <SC.Card key={item?.id}>
+                    <SC.ChangeQuantity>
+                      <SC.ChangeButton>
+                        <SC.IconIncrease as={FiPlusCircle} />
+                      </SC.ChangeButton>
+                      <SC.ChangeItem>{item?.quantity}</SC.ChangeItem>
+                      <SC.ChangeButton>
+                        <SC.IconDecrease as={FiMinusCircle} />
+                      </SC.ChangeButton>
+                    </SC.ChangeQuantity>
+                    <SC.ProductImageWrap>
+                      <SC.ProductImage
+                        src={item?.image_url}
+                        alt={item?.title}
+                      />
+                    </SC.ProductImageWrap>
+                    <SC.ProductWrap>
+                      <SC.ProductTitle>{item?.title}</SC.ProductTitle>
+                      <SC.ProductPrice>
+                        R$ {toCurrency(item?.amount)}
+                      </SC.ProductPrice>
+                      <SC.ProductQuantity>1 x</SC.ProductQuantity>
+                    </SC.ProductWrap>
+                    <SC.ProductTotal>
+                      R$ {toCurrency(item?.quantity * item?.amount)}
+                    </SC.ProductTotal>
+                    <SC.DeleteButton>
+                      <SC.IconDelete as={MdDeleteForever} />
+                    </SC.DeleteButton>
+                  </SC.Card>
+                ))}
+              </>
+            ) : (
+              <SC.NoProductWrap>
+                <NoCartBag />
+                <SC.NoProductText>Nenhum produto encontrado.</SC.NoProductText>
+              </SC.NoProductWrap>
+            )}
           </SC.ItemListWrap>
           <SC.Footer>
             <SC.CouponWrap>
