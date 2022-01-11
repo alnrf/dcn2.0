@@ -1,0 +1,23 @@
+[
+  {
+    "id": 15,
+    "title": "Arroz Tio João",
+    "amount": 399,
+    "quantity": 1,
+    "image_url": "https://carrefourbr.vtexassets.com/arquivos/ids/203188/115657_1.jpg?v=637272452216400000"
+  },
+  {
+    "id": 13,
+    "title": "Feijão Carioca",
+    "amount": 499,
+    "quantity": 1,
+    "image_url": "https://caldobom.vteximg.com.br/arquivos/ids/155552-1000-1000/feijao-carioca-caldo-bom-selecao-especial-500g.jpg?v=637202212299500000"
+  },
+  {
+    "id": 14,
+    "title": "Salgadinho Stiksy",
+    "amount": 599,
+    "quantity": 1,
+    "image_url": "https://a-static.mlcdn.com.br/1500x1500/salgadinho-stiksy-48g-elma-chips/maniapingodemel/3893p/49d4176f7aff42bcf582638453783f1e.jpg"
+  }
+]
