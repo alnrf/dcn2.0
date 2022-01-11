@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Icon } from "@chakra-ui/react";
 
 export const CartPopup = styled.div`
   width: auto;
@@ -68,7 +69,6 @@ export const CartSideBar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   align-items: center;
   position: fixed;
   right: 0;
@@ -76,7 +76,7 @@ export const CartSideBar = styled.div`
   z-index: 99;
   background-color: #fff;
   border: 1px solid #f7f7f7;
-  transform-origin: bottom right;
+  transform: 0.5s ease;
   -webkit-box-shadow: 0px 5px 13px 2px rgba(0, 0, 0, 0.46);
   box-shadow: 0px 5px 13px 2px rgba(0, 0, 0, 0.46);
 `;
@@ -265,7 +265,7 @@ export const ApplyButton = styled.div`
 
 export const FinishDiv = styled(Link)`
   height: 48px;
-  width: 90% ;
+  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -293,7 +293,6 @@ export const FinishTxt = styled.div`
   font-weight: 700;
   font-style: normal;
   line-height: 23px;
-  
 `;
 
 export const FinishPrice = styled.div`
@@ -311,4 +310,166 @@ export const FinishPrice = styled.div`
   padding: 0 24px;
   background-color: #fff;
   border-radius: 48px;
+`;
+
+export const Card = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 100%;
+  height: 92px;
+  padding: 4px;
+  margin: 4px 0;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+`;
+
+export const ChangeQuantity = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f7f7f7;
+  width: 10%;
+  height: 100%;
+  border-radius: 8px;
+`;
+
+export const ChangeButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+`;
+
+export const ChangeItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+line-height: 23px;
+color: #0d1136;
+`;
+
+export const ProductImageWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  width: 80px;
+  height: 80px;
+`;
+
+export const ProductImage = styled.img`
+  width: 50px;
+  height: 50px;
+  display: flex;
+  object-fit: fill;
+  border-radius: 6px;
+`;
+
+export const ProductWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 50%;
+`;
+
+export const ProductTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  background-color: #fff;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+line-height: 23px;
+color: #0d1136;
+`;
+export const ProductPrice = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  background-color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+line-height: 18px;
+color: #134b8b;
+`;
+
+export const ProductQuantity = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  background-color: #fff;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+line-height: 20px;
+color: #77798c;
+`;
+
+export const ProductTotal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  width: 30%;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+line-height: 23px;
+color: #0d1136;
+`;
+
+export const DeleteButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  cursor: pointer;
+`;
+
+export const IconDelete = styled(Icon)`
+color: #0d1136;
+font-size: 20px;
+&:hover {
+  color: red;
+}
+`;
+
+export const IconIncrease = styled(Icon)`
+color: #0d1136;
+font-size: 16px;
+&:hover {
+  color: #134b8b;
+}
+`;
+
+export const IconDecrease = styled(Icon)`
+color: #0d1136;
+font-size: 16px;
+&:hover {
+  color: red;
+}
 `;
