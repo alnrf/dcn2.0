@@ -3,6 +3,7 @@ import * as SC from "./profile.style";
 import ProfileMenu from "../../components/profileMenu/ProfileMenu";
 
 import data from "../../utils/mocks/addresses.json";
+import AddressCard from "../../components/addressCard/AddressCard";
 
 function Profile() {
   const [isCpf, setIsCpf] = useState(true);
@@ -105,20 +106,7 @@ function Profile() {
         </SC.FieldRow>
         <SC.FormContainer>
           <SC.CardRow>
-            {data.addresses.map((item: any, index: any) => (
-              <SC.Card
-                key={index}
-                style={{
-                  borderColor:
-                    selectedItem === item?.city_id ? "#144c8b" : "#d8d8d8",
-                }}
-                onClick={() => handleSelect(item)}
-              >
-                <SC.AddressName>{item?.title}</SC.AddressName>
-                <SC.AddressText>{`${item?.street_name}, ${item?.number} - ${item?.complement}`}</SC.AddressText>
-                <SC.AddressText>{`${item?.zipcode} - ${item?.city}/${item?.state}`}</SC.AddressText>
-              </SC.Card>
-            ))}
+            <AddressCard addressData={data} />
           </SC.CardRow>
 
           {isAddressFormOpen && (

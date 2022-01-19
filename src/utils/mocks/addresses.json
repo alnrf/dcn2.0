@@ -1,40 +1,38 @@
-{
-  "addresses": [
-    {
-      "title": "Casa",
-      "zipcode": "95625-000",
-      "street_name": "Rua 1",
-      "number": "1",
-      "neighbor": "1",
-      "city": "Imbé",
-      "city_id": 4810,
-      "state": "Rio Grande do Sul",
-      "state_id": 21,
-      "complement": ""
-    },
-    {
-      "title": "Casa 2",
-      "zipcode": "81320-180",
-      "street_name": "Rua Alfredo José Pinto",
-      "number": "1640",
-      "neighbor": "Fazendinha",
-      "city": "Curitiba",
-      "city_id": 4006,
-      "state": "Paraná",
-      "state_id": 16,
-      "complement": "Bloco 12 Apto 22"
-    },
-    {
-      "title": "Casa TB",
-      "zipcode": "84268-200",
-      "street_name": "Rua Pau-brasil",
-      "number": "81",
-      "neighbor": "Área 1",
-      "city": "Telêmaco Borba",
-      "city_id": 4285,
-      "state": "Paraná",
-      "state_id": 16,
-      "complement": "Casa de esquina"
-    }
-  ]
-}
+[
+  {
+    "title": "Casa",
+    "zipcode": "95625-000",
+    "street_name": "Rua 1",
+    "number": "1",
+    "neighbor": "1",
+    "city": "Imbé",
+    "city_id": 4810,
+    "state": "Rio Grande do Sul",
+    "state_id": 21,
+    "complement": ""
+  },
+  {
+    "title": "Casa 2",
+    "zipcode": "81320-180",
+    "street_name": "Rua Alfredo José Pinto",
+    "number": "1640",
+    "neighbor": "Fazendinha",
+    "city": "Curitiba",
+    "city_id": 4006,
+    "state": "Paraná",
+    "state_id": 16,
+    "complement": "Bloco 12 Apto 22"
+  },
+  {
+    "title": "Casa TB",
+    "zipcode": "84268-200",
+    "street_name": "Rua Pau-brasil",
+    "number": "81",
+    "neighbor": "Área 1",
+    "city": "Telêmaco Borba",
+    "city_id": 4285,
+    "state": "Paraná",
+    "state_id": 16,
+    "complement": "Casa de esquina"
+  }
+]
