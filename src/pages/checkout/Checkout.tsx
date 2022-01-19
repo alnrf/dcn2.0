@@ -8,6 +8,8 @@ import CustomerForm from "../../components/customerForm/CustomerForm";
 import Payment from "../../components/payment/Payment";
 import CartResume from "../../components/cartResume/CartResume";
 
+import dataAddress from "../../utils/mocks/addresses.json";
+
 function Checkout() {
   const [isAddressFormOpen, setAddressFormOpen] = useState(false);
 
@@ -27,7 +29,7 @@ function Checkout() {
               <SC.AddressTxtBtn>Adicionar endereço</SC.AddressTxtBtn>
             </SC.AddAddressBtn>
           </SC.AddressWrap>
-          <AddressCard />
+          <AddressCard addressData={dataAddress} />
           {isAddressFormOpen && <AddressForm />}
         </SC.Step>
         <SC.Step>
