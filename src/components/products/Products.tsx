@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as SC from "./products.style";
 import { toCurrency } from "../../utils/formatMoney";
 import { Link } from "react-router-dom";
-
+import settings from "../../services/settings";
 import Buy from "./buttons/Buy";
 import AddOrRemove from "./buttons/AddOrRemove";
 
@@ -16,7 +16,9 @@ function Products({ data }: any) {
           <SC.Card key={item?.uuid}>
             <Link to={`/produto/${item?.id}`}>
               <SC.ImageContainer>
-                <SC.Image src={item?.image?.image_url} />
+                <SC.Image
+                  src={`${settings.UPLOAD_API_ENDPOINT}${item?.image?.image_path}`}
+                />
               </SC.ImageContainer>
               <SC.ProductInfo>
                 <SC.OldPrice>
@@ -31,13 +33,17 @@ function Products({ data }: any) {
                 <SC.ProductName>{item?.title}</SC.ProductName>
               </SC.ProductInfo>
             </Link>
-            <SC.ButtonContainer>
-              {qtdeCart === 0 ? (
-                <Buy buyAction={() => setItem(qtdeCart + 1)} />
-              ) : (
-                <AddOrRemove />
-              )}
-            </SC.ButtonContainer>
+            {item?.stock_quantity > 0 ? (
+              <SC.ButtonContainer>
+                {qtdeCart === 0 ? (
+                  <Buy buyAction={() => setItem(qtdeCart + 1)} />
+                ) : (
+                  <AddOrRemove />
+                )}
+              </SC.ButtonContainer>
+            ) : (
+              <SC.ButtonContainer>Sem estoque</SC.ButtonContainer>
+            )}
           </SC.Card>
         ))}
       </SC.Grid>

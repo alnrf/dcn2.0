@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Sidebar from "../../components/sidebar/Sidebar";
 import * as SC from "./home.style";
 import { MdLocalShipping } from "react-icons/md";
-
 import Churrasco from "../../assets/images/banner/churrasco.png";
-
 import Banner from "../../components/bannerHome/BannerHome";
 import Products from "../../components/products/Products";
-
-import ProdData from "../../utils/mocks/productsHome.json";
 import CartSideBar from "../../components/cartSideBar/CartSideBar";
+import { getCategory, getProductList } from "../../services/services";
+import { setCategory, setProducts } from "../../redux/ducks/product/products";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
+  const productList = useSelector((data: any) => data.productStore.products);
+
+  useEffect(() => {
+    getCategory()
+      .then((res) => {
+        dispatch(setCategory(res.category));
+      })
+      .catch((err) => console.error(err));
+
+    getProductList()
+      .then((res) => {
+        dispatch(setProducts(res.product));
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <SC.Container>
       <Sidebar />
@@ -26,7 +43,7 @@ const Home = () => {
           </SC.FreeDeliveryText>
         </SC.FreeDeliveryBar>
         <SC.ProductsContent>
-          <Products data={ProdData.product} />
+          <Products data={productList} />
         </SC.ProductsContent>
       </SC.HomeContent>
       <CartSideBar />

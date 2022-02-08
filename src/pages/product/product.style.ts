@@ -46,7 +46,7 @@ export const ImageWraper = styled.div`
   justify-content: center;
 `;
 
-export const MainImage = styled.div`
+export const MainImage = styled.img`
   display: flex;
   width: 350px;
   height: 350px;
@@ -55,6 +55,7 @@ export const MainImage = styled.div`
   margin: 16px;
   border-radius: 3px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  object-fit: contain;
 `;
 
 export const ThumbsImageWrap = styled.div`
@@ -64,7 +65,7 @@ export const ThumbsImageWrap = styled.div`
   align-items: center;
   justify-content: center;
 `;
-export const ThumbsImage = styled.div<Props>`
+export const ThumbsImage = styled.img<Props>`
   display: flex;
   width: 60px;
   height: 60px;
@@ -76,6 +77,7 @@ export const ThumbsImage = styled.div<Props>`
   border-width: 2px;
   cursor: pointer;
   border-color: ${({ isSelected }) => (isSelected ? " #144c8b" : "#f3f3f3")};
+  object-fit: contain;
 `;
 
 export const InfoWraper = styled.div`
@@ -95,7 +97,7 @@ export const ProductTitle = styled.div`
     font-size: 21px;
     font-style: normal;
     font-weight: 600;
-    line-weight: 32px;
+    line-height: 32px;
     color: #0d1136;
   }
 `;
@@ -110,7 +112,7 @@ export const ProductInfo = styled.div`
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    line-weight: 20px;
+    line-height: 20px;
     color: #77798c;
   }
 `;

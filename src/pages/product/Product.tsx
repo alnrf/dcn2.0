@@ -1,55 +1,65 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as SC from "./product.style";
 import { useNavigate, useParams } from "react-router-dom";
 import { toCurrency } from "../../utils/formatMoney";
 import Buy from "../../components/products/buttons/Buy";
 import AddOrRemove from "../../components/products/buttons/AddOrRemove";
+import { getProductDetail } from "../../services/services";
+import settings from "../../services/settings";
+import { getMeasureAbbreviation, getMeasure } from "../../utils/formatMeasure";
 
-const prodData = {
-  title: "Tomate",
-  id: 8,
-  amount: 1499,
-  from_amount: 1555,
-  stock_type: "Kilograma",
-  stock_unit: "kg",
-  stock_qtde: 1,
-  highlight: "Oferta",
-  description:
-    "O tomate é o fruto[1] do tomateiro (Solanum lycopersicum; Solanaceae). Da sua família, fazem também parte as berinjelas, as pimentas e os pimentões, além de algumas espécies não comestíveis. A palavra portuguesa tomate vem do castelhano tomate, derivada do náuatle (língua asteca) tomatl. Esta apareceu pela primeira vez na imprensa em 1595. As espécies são originárias das Américas Central e do Sul; sua utilização como alimentos teve origem no México,[3] espalhando-se por todo o mundo depois da colonização das Américas pelos europeus. Suas muitas variedades são agora amplamente cultivadas, às vezes em estufas em climas mais frios. As plantas crescem tipicamente entre 1-3 metros (3-10 pés) de altura e desenvolvendo hastes fracas que se estendem sobre o chão ou trepam pelas outras plantas. É uma planta perene no seu habitat nativo, embora seja muitas vezes cultivada em climas temperados como anual. Um tomate comum médio pesa cerca de 100 gramas (4 oz).",
-  images: [
+interface iCategory {
+  id?: number;
+  title?: string;
+  seo_url?: string;
+}
+
+interface iProdDetail {
+  id?: number;
+  uuid?: string;
+  code?: string;
+  title?: string;
+  from_amount?: any;
+  amount?: any;
+  stock_type?: string;
+  stock_unity?: number;
+  seo_url?: string;
+  full_seo_url?: string;
+  main_image_id?: number;
+  show_home?: string;
+  image?: [
     {
-      id: 1,
-      url: "http://poa01.datacubo.net:3030/image/3/17992501-47a6-4a4f-b07f-b4c13ab5bb73ae9115b9-9bc0-4571-a43f-dd9678beacbf_1618507768_thumb.png",
-    },
-    {
-      id: 2,
-      url: "http://poa01.datacubo.net:3030/image/3/6441e465-f35d-4879-b628-bd637e205f3c9fbe23b2-f95b-4aec-bda9-d10f1cce6af2_1618508148_thumb.jpg",
-    },
-    {
-      id: 3,
-      url: "https://hiperideal.vteximg.com.br/arquivos/ids/167668-1000-1000/30619.jpg?v=636615816174370000",
-    },
-    {
-      id: 4,
-      url: "https://www.infoescola.com/wp-content/uploads/2011/01/tomate_345187874.jpg",
-    },
-    {
-      id: 5,
-      url: "http://d3ugyf2ht6aenh.cloudfront.net/stores/746/397/products/tomate-longa-vida1-e12545f3c4985942a915417674167711-640-0.png",
-    },
-    {
-      id: 6,
-      url: "https://assets.yara.com/48f316f2dec24d948cf50af42d4bebd7.jpg",
-    },
-  ],
-};
+      id?: number;
+      main?: boolean;
+      path?: string | undefined;
+      image?: string | undefined;
+      image_thumb?: string | undefined;
+      image_path?: string | undefined;
+      image_url?: string | undefined;
+    }
+  ];
+  category?: iCategory;
+  subcategory?: iCategory;
+}
 
 function Product() {
   const navigate = useNavigate();
-  // const params = useParams();
+  const params = useParams();
+  const [prodData, setProdDetail] = useState<iProdDetail>();
+  const [mainImg, setMainImg] = useState();
 
-  const [mainImg, setMainImg] = useState(prodData.images[0].url);
   const [qtdeCart, setItem] = useState(0);
+
+  useEffect(() => {
+    getProductDetail(params.id)
+      .then((res) => {
+        setProdDetail(res);
+        setMainImg(res.image[0].image_path);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {}, [prodData]);
 
   return (
     <SC.Container>
@@ -61,18 +71,21 @@ function Product() {
         </SC.LinkBarWrap>
         <SC.Product>
           <SC.ImageWraper>
-            <SC.MainImage>
-              <img src={mainImg} alt="Imagem principal" />
-            </SC.MainImage>
+            <SC.MainImage
+              src={`${settings.UPLOAD_API_ENDPOINT}${mainImg}`}
+              alt="Imagem principal"
+            />
+
             <SC.ThumbsImageWrap>
-              {prodData?.images?.map((item: any) => (
+              {prodData?.image?.map((item: any) => (
                 <SC.ThumbsImage
-                  isSelected={mainImg === item?.url}
+                  isSelected={mainImg === item?.image_path}
                   key={item?.id}
-                  onClick={() => setMainImg(item?.url)}
-                >
-                  <img src={item?.url} alt="Miniatura" />
-                </SC.ThumbsImage>
+                  onClick={() => setMainImg(item?.image_path)}
+                  src={`${settings.UPLOAD_API_ENDPOINT}${item?.image_path}`}
+                  alt="Miniatura"
+                  style={{ objectFit: "contain" }}
+                />
               ))}
             </SC.ThumbsImageWrap>
           </SC.ImageWraper>
@@ -81,24 +94,26 @@ function Product() {
               <span>{prodData?.title}</span>
             </SC.ProductTitle>
             <SC.ProductInfo>
-              <span>{`${prodData.stock_qtde} ${prodData?.stock_unit} (${prodData?.stock_type})`}</span>
+              <span>{`${prodData?.stock_unity} ${getMeasureAbbreviation(
+                prodData?.stock_type
+              )} (${getMeasure(prodData?.stock_type)})`}</span>
             </SC.ProductInfo>
             <SC.PriceWrap>
-              <SC.Price>R${toCurrency(prodData?.amount)}</SC.Price>
-              {prodData?.from_amount && (
+              <SC.Price>{`R$${toCurrency(prodData?.amount)}`}</SC.Price>
+              {prodData?.from_amount > 0 && (
                 <SC.PriceFrom>
-                  R${toCurrency(prodData?.from_amount)}
+                  {`R$${toCurrency(prodData?.from_amount)}`}
                 </SC.PriceFrom>
               )}
             </SC.PriceWrap>
-            {prodData?.description && (
+            {/* {prodData?.description && (
               <SC.Description>
                 <SC.DescriptionTitle>Descrição:</SC.DescriptionTitle>
                 <SC.DescriptionContent>
                   {prodData?.description}
                 </SC.DescriptionContent>
               </SC.Description>
-            )}
+            )} */}
           </SC.InfoWraper>
         </SC.Product>
         <SC.BuyButtonArea>

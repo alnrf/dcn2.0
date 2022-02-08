@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Input} from '@chakra-ui/react'
 
 type Prop = {
   isCpf: boolean;
@@ -160,7 +161,7 @@ export const Error = styled.span`
   margin: 2px 0 0 0;
 `;
 
-export const Input = styled.input`
+export const InputField = styled(Input)`
   display: flex;
   width: 100%;
   height: 48px;

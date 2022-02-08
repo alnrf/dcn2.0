@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled,  { keyframes } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -114,6 +114,23 @@ export const BtnTxt = styled.span`
   color: #ffffff;
 `;
 
+export const Error = styled.div`
+  display: flex;
+  width: 100%;
+  height: 48px;
+  background-color:#F8D7DA;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  margin: 16px 0;
+  border: 1px solid #721c24;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  color: #721c24;
+`;
+
 export const HDivider = styled.div`
   display: flex;
   height: 48px;
@@ -165,4 +182,35 @@ width: 100%;
 height: 56px;
 align-items: center;
 justify-content: center;
+`;
+
+const keyframe = keyframes`
+to {transform: rotate(360deg)}
+`;
+
+export const SpinnerBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  animation: ${keyframe} 0.6s linear infinite;
+`;
+
+
+
+export const RecoveryResponse = styled.div`
+  display: flex;
+  width: 100%;
+  height: 48px;
+  background-color: #D4EDDA;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  margin: 16px 0;
+  
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  color: #155724;
 `;
