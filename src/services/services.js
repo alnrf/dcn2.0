@@ -128,13 +128,8 @@ export const deleteAddress = async (id, accessToken) => {
   return response.data;
 };
 
-export const getZipCode = async (zipcode, accessToken) => {
-  const response = await api
-    .get(`/shop/zipcode-address/${zipcode}`, {
-      headers: {
-        Authorization: accessToken,
-      },
-    })
-    .catch((err) => Promise.reject(new Error(err)));
+export const getZipCode = async (zipcode) => {
+  const response = await api.get(`/shop/zipcode-address/${zipcode}`);
+
   return response.data;
 };

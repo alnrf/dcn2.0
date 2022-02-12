@@ -6,14 +6,16 @@ import AddressCard from "../../components/addressCard/AddressCard";
 import useDocumentTitle from "../../utils/hooks/useDocumentTitle";
 import { useDispatch, useSelector } from "react-redux";
 import InputMask from "react-input-mask";
-import { Input } from "@chakra-ui/react";
+import { Icon, Input } from "@chakra-ui/react";
 import {
   deleteAddress,
   getCustomer,
+  getZipCode,
   updateCustomer,
 } from "../../services/services";
 import { setCustomer, setIsLogged } from "../../redux/ducks/auth/auth";
 import { getStorageItem } from "../../utils/storage";
+import { MdSearch } from "react-icons/md";
 interface AddressProps {
   id: number;
   uuid: string;
@@ -40,7 +42,23 @@ function Profile() {
   const [selectedItem, setSelectedItem] = useState(null);
   const authData = useSelector((data: any) => data.authStore.authInfo);
   const customerData = useSelector((data: any) => data.authStore.customer);
-  const [addressList, setAddressList] = useState<AddressProps>();
+  const [addressList, setAddressList] = useState<AddressProps>({
+    id: 0,
+    uuid: "",
+    title: "",
+    zipcode: "",
+    street_name: "",
+    number: "",
+    complement: "",
+    neighbor: "",
+    city: "",
+    city_id: 0,
+    state: "",
+    state_id: 0,
+    state_slug: "",
+    lat: "",
+    lng: "",
+  });
   const [fullName, setFullName] = useState<string | undefined>();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
@@ -49,6 +67,7 @@ function Profile() {
   const [birthDate, setBirthDate] = useState();
   const [legalName, setLegalName] = useState();
   const [responseMessage, setResponseMessage] = useState();
+
   const authToken = authData.access_token;
 
   const handleSelect = ({ city_id }: any) => {
@@ -73,10 +92,25 @@ function Profile() {
       .catch((err) => console.error(err));
   };
 
+  const handleBuscaCEP = () => {
+    getZipCode(addressList.zipcode).then((res) => {
+      setAddressList({
+        ...addressList,
+        street_name: res.street_name,
+        neighbor: res.neighbor,
+        city: res.city,
+        city_id: res.city_id,
+        state: res.state,
+        state_id: res.state_id,
+      });
+    });
+  };
+
   const handleUpdateCustomer = () => {
     let payload = {
       first_name: fullName?.split(" ")[0],
       last_name: fullName?.split(" ").slice(-1).join(" "),
+      social_name: legalName,
       email_address: email,
       phone_number: phone,
       document_number: documentNumber,
@@ -284,20 +318,25 @@ function Profile() {
                   nav-index="1"
                 />
               </SC.InputContainer>
-              <SC.Row>
-                <SC.InputContainer style={{ marginLeft: "8px" }}>
-                  <SC.Label>CEP</SC.Label>
-                  <SC.InputField
+
+              <SC.InputContainer>
+                <SC.Label>CEP</SC.Label>
+                <SC.RowCEP>
+                  <Input
+                    as={InputMask}
+                    mask="**.***-***"
                     variant="outline"
                     type="text"
                     name="zipcode"
-                    placeholder="00.000-000"
+                    placeholder="Informe o CEP."
                     nav-index="2"
-                    max={8}
                   />
-                  <SC.Error>Informe o CEP.</SC.Error>
-                </SC.InputContainer>
-              </SC.Row>
+                  <SC.IconSearchDiv>
+                    <Icon as={MdSearch} color="#134b8b" font-size="32px" />
+                  </SC.IconSearchDiv>
+                </SC.RowCEP>
+              </SC.InputContainer>
+
               <SC.InputContainer>
                 <SC.Label>Rua/Logradouro</SC.Label>
                 <SC.InputField
