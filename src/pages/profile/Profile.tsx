@@ -12,10 +12,12 @@ import {
   getCustomer,
   getZipCode,
   updateCustomer,
+  addAddress,
 } from "../../services/services";
 import { setCustomer, setIsLogged } from "../../redux/ducks/auth/auth";
 import { getStorageItem } from "../../utils/storage";
 import { MdSearch } from "react-icons/md";
+import { clearMask } from "../../utils/clearMask";
 interface AddressProps {
   id: number;
   uuid: string;
@@ -67,6 +69,7 @@ function Profile() {
   const [birthDate, setBirthDate] = useState();
   const [legalName, setLegalName] = useState();
   const [responseMessage, setResponseMessage] = useState();
+  const [isEditing, setIsEditing] = useState(false);
 
   const authToken = authData.access_token;
 
@@ -92,8 +95,29 @@ function Profile() {
       .catch((err) => console.error(err));
   };
 
+  const resetForm = () => {
+    setAddressList({
+      ...addressList,
+      id: 0,
+      uuid: "",
+      title: "",
+      zipcode: "",
+      street_name: "",
+      number: "",
+      complement: "",
+      neighbor: "",
+      city: "",
+      city_id: 0,
+      state: "",
+      state_id: 0,
+      state_slug: "",
+      lat: "",
+      lng: "",
+    });
+  };
+
   const handleBuscaCEP = () => {
-    getZipCode(addressList.zipcode).then((res) => {
+    getZipCode(clearMask(addressList.zipcode)).then((res) => {
       setAddressList({
         ...addressList,
         street_name: res.street_name,
@@ -125,6 +149,83 @@ function Profile() {
       .catch((err) => console.error(err));
   };
 
+  const handleAddAddress = () => {
+    let payload = {
+      title: addressList.title,
+      zipcode: clearMask(addressList.zipcode),
+      street_name: addressList.street_name,
+      number: addressList.number,
+      complement: addressList.complement,
+      neighbor: addressList.neighbor,
+      city: addressList.city,
+      city_id: addressList.city_id,
+      state: addressList.state,
+      state_id: addressList.state_id,
+      lat: 0,
+      lng: 0,
+    };
+    addAddress(payload, authToken)
+      .then((res) => {
+        getCustomer(authToken)
+          .then((res) => {
+            dispatch(setCustomer(res));
+            dispatch(setIsLogged(true));
+          })
+          .catch((err) => console.error(err));
+        resetForm();
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleUpdateAddress = () => {
+    let payload = {
+      title: addressList.title,
+      zipcode: clearMask(addressList.zipcode),
+      street_name: addressList.street_name,
+      number: addressList.number,
+      complement: addressList.complement,
+      neighbor: addressList.neighbor,
+      city: addressList.city,
+      city_id: addressList.city_id,
+      state: addressList.state,
+      state_id: addressList.state_id,
+      lat: 0,
+      lng: 0,
+    };
+    addAddress(payload, authToken)
+      .then((res) => {
+        getCustomer(authToken)
+          .then((res) => {
+            dispatch(setCustomer(res));
+            dispatch(setIsLogged(true));
+          })
+          .catch((err) => console.error(err));
+        resetForm();
+      })
+      .catch((err) => console.error(err));
+    setAddressFormOpen(false);
+  };
+
+  const handleEditItem = (id: any) => {
+    let newArr = customerData.addresses.find((i: any) => i.id === id);
+    setAddressList({
+      ...addressList,
+      title: newArr.title,
+      zipcode: newArr.zipcode,
+      street_name: newArr.street_name,
+      number: newArr.number,
+      complement: newArr.complement,
+      neighbor: newArr.neighbor,
+      city: newArr.city,
+      city_id: newArr.city_id,
+      state: newArr.state,
+      state_id: newArr.state_id,
+      lat: "",
+      lng: "",
+    });
+    setIsEditing(true);
+    setAddressFormOpen(true);
+  };
   useEffect(() => {
     if (!customerData) {
       return;
@@ -302,7 +403,7 @@ function Profile() {
           <SC.CardRow>
             <AddressCard
               onDelete={(id) => handleDeleteAddress(id)}
-              onEdit={() => alert("Edit")}
+              onEdit={(id) => handleEditItem(id)}
             />
           </SC.CardRow>
 
@@ -316,6 +417,10 @@ function Profile() {
                   name="title"
                   placeholder="Ex.: Casa, Trabalho..."
                   nav-index="1"
+                  value={addressList.title}
+                  onChange={(e: any) =>
+                    setAddressList({ ...addressList, title: e.target.value })
+                  }
                 />
               </SC.InputContainer>
 
@@ -330,9 +435,16 @@ function Profile() {
                     name="zipcode"
                     placeholder="Informe o CEP."
                     nav-index="2"
+                    value={addressList.zipcode}
+                    onChange={(e: any) =>
+                      setAddressList({
+                        ...addressList,
+                        zipcode: e.target.value,
+                      })
+                    }
                   />
-                  <SC.IconSearchDiv>
-                    <Icon as={MdSearch} color="#134b8b" font-size="32px" />
+                  <SC.IconSearchDiv onClick={() => handleBuscaCEP()}>
+                    <Icon as={MdSearch} color="#134b8b" fontSize="32px" />
                   </SC.IconSearchDiv>
                 </SC.RowCEP>
               </SC.InputContainer>
@@ -344,6 +456,13 @@ function Profile() {
                   type="text"
                   name="street_name"
                   nav-index="3"
+                  value={addressList.street_name}
+                  onChange={(e: any) =>
+                    setAddressList({
+                      ...addressList,
+                      street_name: e.target.value,
+                    })
+                  }
                 />
               </SC.InputContainer>
               <SC.Row>
@@ -352,8 +471,15 @@ function Profile() {
                   <SC.InputField
                     variant="outline"
                     type="text"
-                    name="state"
+                    name="number"
                     nav-index="4"
+                    value={addressList.number}
+                    onChange={(e: any) =>
+                      setAddressList({
+                        ...addressList,
+                        number: e.target.value,
+                      })
+                    }
                   />
                 </SC.InputContainer>
                 <SC.InputContainer style={{ marginLeft: "8px" }}>
@@ -361,8 +487,15 @@ function Profile() {
                   <SC.InputField
                     variant="outline"
                     type="text"
-                    name="city"
+                    name="neighborhood"
                     nav-index="5"
+                    value={addressList.neighbor}
+                    onChange={(e: any) =>
+                      setAddressList({
+                        ...addressList,
+                        neighbor: e.target.value,
+                      })
+                    }
                   />
                 </SC.InputContainer>
               </SC.Row>
@@ -373,6 +506,13 @@ function Profile() {
                   type="text"
                   name="complement"
                   nav-index="6"
+                  value={addressList.complement}
+                  onChange={(e: any) =>
+                    setAddressList({
+                      ...addressList,
+                      complement: e.target.value,
+                    })
+                  }
                 />
               </SC.InputContainer>
               <SC.Row>
@@ -383,6 +523,13 @@ function Profile() {
                     type="text"
                     name="city"
                     nav-index="7"
+                    value={addressList.city}
+                    onChange={(e: any) =>
+                      setAddressList({
+                        ...addressList,
+                        city: e.target.value,
+                      })
+                    }
                   />
                 </SC.InputContainer>
                 <SC.InputContainer style={{ marginLeft: "8px" }}>
@@ -392,12 +539,27 @@ function Profile() {
                     type="text"
                     name="state"
                     nav-index="8"
+                    value={addressList.state}
+                    onChange={(e: any) =>
+                      setAddressList({
+                        ...addressList,
+                        state: e.target.value,
+                      })
+                    }
                   />
                 </SC.InputContainer>
               </SC.Row>
             </>
           )}
-          <SC.ButtonSave>Salvar</SC.ButtonSave>
+          {(isEditing || isAddressFormOpen) && (
+            <SC.ButtonSave
+              onClick={() =>
+                isEditing ? handleUpdateAddress() : handleAddAddress()
+              }
+            >
+              Salvar
+            </SC.ButtonSave>
+          )}
         </SC.FormContainer>
       </SC.ProfileContainer>
     </SC.Container>

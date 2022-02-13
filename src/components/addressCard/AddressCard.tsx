@@ -54,7 +54,7 @@ function AddressCard({ onEdit, onDelete }: Actions) {
           {showCardActions === item?.id && (
             <SC.CardActions>
               <Tooltip fontSize="md" label="Editar" placement="top">
-                <SC.ActionEdit onClick={() => alert("Vai editar")}>
+                <SC.ActionEdit onClick={() => onEdit(item?.id)}>
                   <SC.IconAction as={MdEdit} />
                 </SC.ActionEdit>
               </Tooltip>
