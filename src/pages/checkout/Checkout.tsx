@@ -29,7 +29,10 @@ function Checkout() {
               <SC.AddressTxtBtn>Adicionar endereço</SC.AddressTxtBtn>
             </SC.AddAddressBtn>
           </SC.AddressWrap>
-          <AddressCard addressData={dataAddress} />
+          <AddressCard
+            onDelete={() => alert("delete")}
+            onEdit={() => alert("Edit")}
+          />
           {isAddressFormOpen && <AddressForm />}
         </SC.Step>
         <SC.Step>

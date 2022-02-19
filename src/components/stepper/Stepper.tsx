@@ -1,62 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import * as SC from "./stepper.style";
 import { Icon } from "@chakra-ui/react";
 import { MdCheck, MdOutlineClose } from "react-icons/md";
 
 function Stepper({ status }: any) {
-  const [stepOneDone, setStepOneDone] = useState(false);
-  const [stepTwoDone, setStepTwoDone] = useState(false);
-  const [stepThreeDone, setStepThreeDone] = useState(false);
-  const [stepFourDone, setStepFourDone] = useState(false);
-  const [stepFiveDone, setStepFiveDone] = useState(false);
-  const [isCanceled, setIsCanceled] = useState(false);
-
-  useEffect(() => {
-    if (status === "CREATED") {
-      setStepOneDone(true);
+  const getStep = (status: any) => {
+    switch (status) {
+      case "CREATED":
+        return 1;
+      case "CONFIRMED":
+        return 2;
+      case "PREPARING":
+        return 3;
+      case "DELIVERING":
+        return 4;
+      case "COMPLETED":
+        return 5;
+      case "CANCELED":
+        return 6;
+      default:
+        return 0;
     }
-    if (status === "CONFIRMED") {
-      setStepOneDone(true);
-      setStepTwoDone(true);
-    }
-    if (status === "PREPARING") {
-      setStepOneDone(true);
-      setStepTwoDone(true);
-      setStepThreeDone(true);
-    }
-    if (status === "DELIVERING") {
-      setStepOneDone(true);
-      setStepTwoDone(true);
-      setStepThreeDone(true);
-      setStepFourDone(true);
-    }
-    if (status === "COMPLETED") {
-      setStepOneDone(true);
-      setStepTwoDone(true);
-      setStepThreeDone(true);
-      setStepFourDone(true);
-      setStepFiveDone(true);
-    }
-    if (status === "CANCELED") {
-      setStepOneDone(false);
-      setStepTwoDone(false);
-      setStepThreeDone(false);
-      setStepFourDone(false);
-      setStepFiveDone(false);
-      setIsCanceled(true);
-    }
-  }, []);
+  };
 
   return (
     <>
-      {!isCanceled ? (
+      {status !== "CANCELED" ? (
         <SC.Container>
           <SC.WrapStep>
             <SC.Row>
               <SC.DummyLine />
               <SC.Box>
-                <SC.Circle isDone={stepOneDone}>
-                  {stepOneDone ? (
+                <SC.Circle actualStep={getStep(status)} compareStep={0}>
+                  {getStep(status) > 0 ? (
                     <Icon
                       as={MdCheck}
                       fontWeight="normal"
@@ -68,16 +44,16 @@ function Stepper({ status }: any) {
                   )}
                 </SC.Circle>
               </SC.Box>
-              <SC.DynamicLine isDone={stepOneDone} />
+              <SC.DynamicLine actualStep={getStep(status)} compareStep={0} />
             </SC.Row>
             <SC.StepText>Recebido</SC.StepText>
           </SC.WrapStep>
           <SC.WrapStep>
             <SC.Row>
-              <SC.DynamicLine isDone={stepTwoDone} />
+              <SC.DynamicLine actualStep={getStep(status)} compareStep={1} />
               <SC.Box>
-                <SC.Circle isDone={stepTwoDone}>
-                  {stepTwoDone ? (
+                <SC.Circle actualStep={getStep(status)} compareStep={1}>
+                  {getStep(status) > 1 ? (
                     <Icon
                       as={MdCheck}
                       fontWeight="normal"
@@ -89,16 +65,16 @@ function Stepper({ status }: any) {
                   )}
                 </SC.Circle>
               </SC.Box>
-              <SC.DynamicLine isDone={stepTwoDone} />
+              <SC.DynamicLine actualStep={getStep(status)} compareStep={1} />
             </SC.Row>
             <SC.StepText>Confirmado</SC.StepText>
           </SC.WrapStep>
           <SC.WrapStep>
             <SC.Row>
-              <SC.DynamicLine isDone={stepThreeDone} />
+              <SC.DynamicLine actualStep={getStep(status)} compareStep={2} />
               <SC.Box>
-                <SC.Circle isDone={stepThreeDone}>
-                  {stepThreeDone ? (
+                <SC.Circle actualStep={getStep(status)} compareStep={2}>
+                  {getStep(status) > 2 ? (
                     <Icon
                       as={MdCheck}
                       fontWeight="normal"
@@ -110,16 +86,16 @@ function Stepper({ status }: any) {
                   )}
                 </SC.Circle>
               </SC.Box>
-              <SC.DynamicLine isDone={stepThreeDone} />
+              <SC.DynamicLine actualStep={getStep(status)} compareStep={2} />
             </SC.Row>
             <SC.StepText>Preparando</SC.StepText>
           </SC.WrapStep>
           <SC.WrapStep>
             <SC.Row>
-              <SC.DynamicLine isDone={stepFourDone} />
+              <SC.DynamicLine actualStep={getStep(status)} compareStep={3} />
               <SC.Box>
-                <SC.Circle isDone={stepFourDone}>
-                  {stepFourDone ? (
+                <SC.Circle actualStep={getStep(status)} compareStep={3}>
+                  {getStep(status) > 3 ? (
                     <Icon
                       as={MdCheck}
                       fontWeight="normal"
@@ -131,16 +107,16 @@ function Stepper({ status }: any) {
                   )}
                 </SC.Circle>
               </SC.Box>
-              <SC.DynamicLine isDone={stepFourDone} />
+              <SC.DynamicLine actualStep={getStep(status)} compareStep={3} />
             </SC.Row>
             <SC.StepText>Saiu para entrega</SC.StepText>
           </SC.WrapStep>
           <SC.WrapStep>
             <SC.Row>
-              <SC.DynamicLine isDone={stepFiveDone} />
+              <SC.DynamicLine actualStep={getStep(status)} compareStep={4} />
               <SC.Box>
-                <SC.Circle isDone={stepFiveDone}>
-                  {stepFiveDone ? (
+                <SC.Circle actualStep={getStep(status)} compareStep={4}>
+                  {getStep(status) > 4 ? (
                     <Icon
                       as={MdCheck}
                       fontWeight="normal"

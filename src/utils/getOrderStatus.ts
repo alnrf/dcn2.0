@@ -12,6 +12,8 @@ export const getOrderStatus = (status: string) => {
         return "FINALIZADO";
       case "CANCELED":
         return "CANCELADO";
+      case "CANCEL_REQUESTED":
+        return "CANC. SOLICITADO";
       default:
         return "CRIADO";
     }

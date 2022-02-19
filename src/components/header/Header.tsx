@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as SC from "./header.style";
 import Logo from "../../assets/logos/Superbom.png";
 import SearchBar from "../../components/searchBar/SearchBar";
@@ -6,10 +6,12 @@ import { MdHelp } from "react-icons/md";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Icon } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header: React.FC = () => {
-  const [isLogged, setIsLogged] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
+  const authData = useSelector((data: any) => data.authStore.customer);
+
   return (
     <>
       <SC.HeaderWrapper>
@@ -25,7 +27,7 @@ const Header: React.FC = () => {
             <Icon as={MdHelp} fontSize="xl" style={{ marginRight: "4px" }} />
             Ajuda
           </SC.NavLink>
-          {!isLogged ? (
+          {!authData?.first_name ? (
             <SC.NavLink to="/login">
               <SC.Button>Entrar</SC.Button>
             </SC.NavLink>
@@ -38,7 +40,7 @@ const Header: React.FC = () => {
                 style={{ marginRight: "8px" }}
               />
               <SC.Greeting>
-                Olá,<SC.Name>Allan</SC.Name>
+                Olá,<SC.Name>{authData?.first_name}</SC.Name>
               </SC.Greeting>
             </SC.WrapUser>
           )}

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 type StepProps = {
-    isDone: boolean;
+    actualStep: number;
+    compareStep: number;
 }
 
 export const Container = styled.div`
@@ -20,9 +21,9 @@ align-items: center;
 justify-content: center;
 border-radius: 50%;
 border-width: 2px;
-background-color: ${({ isDone }) => (isDone ? '#134B8B' : '#FFFFFF')};
-border-style: ${({ isDone }) => (isDone ? 'solid' : 'dotted')};
-border-color: ${({ isDone }) => (isDone ? 'transparent' : '#134B8B')};
+background-color: ${({ actualStep, compareStep }) => (actualStep > compareStep ? '#134B8B' : '#FFFFFF')};
+border-style: ${({ actualStep, compareStep }) => (actualStep > compareStep ? 'solid' : 'dotted')};
+border-color: ${({ actualStep, compareStep }) => (actualStep > compareStep ? 'transparent' : '#134B8B')};
 `;
 
 export const CircleRed = styled.div`
@@ -76,7 +77,7 @@ width: 80%;
 flex-direction: row;
 border-bottom-style: solid;
 border-bottom-width: 3px;
-border-bottom-color: ${({ isDone }) => (isDone ? '#134B8B' : '#E6E6E6')};
+border-bottom-color: ${({ actualStep, compareStep }) => (actualStep > compareStep ? '#134B8B' : '#E6E6E6')};
 `;
 
 export const WrapStep = styled.div`

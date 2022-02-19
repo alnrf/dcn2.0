@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Input } from "@chakra-ui/react";
 
 type Prop = {
   isCpf: boolean;
@@ -160,7 +161,7 @@ export const Error = styled.span`
   margin: 2px 0 0 0;
 `;
 
-export const Input = styled.input`
+export const InputField = styled(Input)`
   display: flex;
   width: 100%;
   height: 48px;
@@ -180,9 +181,8 @@ export const CardRow = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin: 0 0 16px 0;
- 
 `;
 
 export const Card = styled.div`
@@ -190,7 +190,7 @@ export const Card = styled.div`
   width: 350px;
   flex-direction: column;
   padding: 16px;
-  background-color: #F4F9FF;
+  background-color: #f4f9ff;
   border-radius: 6px;
   margin: 0 16px 0 0;
   border-style: solid;
@@ -200,22 +200,20 @@ export const Card = styled.div`
 `;
 
 export const AddressName = styled.span`
-font-size: 13px;
-font-style: normal;
-font-weight: 700;
-line-height: 16px;
-color: #0d1136;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  color: #0d1136;
 `;
 
 export const AddressText = styled.span`
-font-size: 15px;
-font-style: normal;
-font-weight: 400;
-line-height: 18px;
-color: #424561;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #424561;
 `;
-
-
 
 export const AddAddressBtn = styled.div`
   display: flex;
@@ -233,4 +231,20 @@ export const AddAddressBtn = styled.div`
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+`;
+
+export const RowCEP = styled.div`
+  display: flex;
+  width:55%;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const IconSearchDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 24px;
+  cursor: pointer;
 `;
