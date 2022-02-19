@@ -11,6 +11,7 @@ api.interceptors.request.use(
     config.headers["platform_token"] = settings.PLATFORM_TOKEN;
     config.headers["application_name"] = settings.APPLICATION_NAME;
     config.headers["Access-Control-Allow-Origin"] = "*";
+
     return config;
   },
   function (error) {

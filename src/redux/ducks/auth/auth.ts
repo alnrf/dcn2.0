@@ -8,7 +8,7 @@ const initialState = {
   authInfo: {},
   customer: {},
   settings: {},
-  isLogged: false
+  isLogged: false,
 };
 
 // Reducer
@@ -31,11 +31,11 @@ export default function authReducer(state = initialState, action: any) {
         ...state,
         settings: action.payload,
       };
-      case SET_SETTINGS:
-        return {
-          ...state,
-          isLogged: true,
-        };
+    case SET_LOGGED:
+      return {
+        ...state,
+        isLogged: true,
+      };
     default:
       return state;
   }

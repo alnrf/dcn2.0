@@ -55,6 +55,7 @@ function Login() {
       .then((res) => {
         dispatch(setToken(res));
         handleGetCustomer(res.access_token);
+        setStorageItem("tkn", res.access_token);
       })
       .catch((err) => {
         setLoginLoading(false);

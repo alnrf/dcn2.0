@@ -23,11 +23,11 @@ export default function productReducer(state = initialState, action: any) {
         ...state,
         products: action.payload,
       };
-      case SET_CATEGORY_PRODUCTS:
-        return {
-          ...state,
-          productList: action.payload,
-        };
+    case SET_CATEGORY_PRODUCTS:
+      return {
+        ...state,
+        productList: action.payload,
+      };
     default:
       return state;
   }
@@ -49,4 +49,3 @@ export const setCategoryProducts = (payload: any) => ({
   type: SET_CATEGORY_PRODUCTS,
   payload,
 });
-

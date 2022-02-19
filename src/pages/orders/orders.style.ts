@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const MyOrdersContainer = styled.div`
   display: flex;
-  width: 330px;
+  width: 350px;
   height: 903px;
   flex-direction: column;
   align-items: center;
@@ -28,6 +28,15 @@ export const MyOrdersContainer = styled.div`
   background-color: #fff;
   margin: 0 24px;
   padding: 16px;
+  
+`;
+
+export const CardsContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const OrderDetailContainer = styled.div`
@@ -126,6 +135,7 @@ export const Status = styled.div`
       case "COMPLETED":
         return "#303030";
       case "CANCELED":
+        case "CANCEL_REQUESTED":
         return "#C02323";
       default:
         return "#fff";
@@ -142,6 +152,7 @@ export const OrderInfo = styled.div`
   padding: 8px;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
+  
 `;
 
 export const Row = styled.div`
@@ -150,7 +161,7 @@ export const Row = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 0 0 16px 0;
+  margin: 0 0 6px 0;
 `;
 
 export const Col = styled.div`
@@ -296,7 +307,7 @@ export const ProductTitleItem = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  padding: 
+
   background-color: #f7f7f7;
   font-size: 13px;
   font-style: normal;
@@ -304,6 +315,7 @@ export const ProductTitleItem = styled.div`
   font-weight: 700;
   color: #0d1136;
 `;
+
 export const ProductTitleQttyPrice = styled.div`
   display: flex;
   width: 40%;
