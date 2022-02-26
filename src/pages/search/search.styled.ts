@@ -3,18 +3,18 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   width: 100%;
-  margin: auto;
   justify-content: center;
   min-height: 768px;
   padding: 32px 16px;
 `;
 
-export const HomeContent = styled.div`
+export const CategoryContent = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
-  margin: 0 0 0 16px;
+  height: auto;
+  margin: 8px 8px;
 `;
 
 export const FreeDeliveryBar = styled.div`
@@ -38,22 +38,4 @@ export const FreeDeliveryText = styled.span`
   font-style: normal;
   font-weight: 400;
   color: #1b5fac;
-`;
-
-export const BannerContent = styled.div`
-  display: flex;
-  width: 100%;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-  margin: 0 8px 8px 8px;
-`;
-
-export const ProductsContent = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  margin: 8px 8px;
 `;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as SC from "./checkout.style";
 
 import AddressCard from "../../components/addressCard/AddressCard";
@@ -7,11 +7,30 @@ import DeliveryCard from "../../components/deliveryCard/DeliveryCard";
 import CustomerForm from "../../components/customerForm/CustomerForm";
 import Payment from "../../components/payment/Payment";
 import CartResume from "../../components/cartResume/CartResume";
-
-import dataAddress from "../../utils/mocks/addresses.json";
+import { ScheduleProps } from "./Interface";
+import { checkProducts, getDeliverySchedule } from "../../services/services";
 
 function Checkout() {
   const [isAddressFormOpen, setAddressFormOpen] = useState(false);
+  const [schedule, setSchedule] = useState<ScheduleProps>();
+  const [scheduleSelected, setScheduleSelected] = useState("");
+
+  useEffect(() => {
+    getDeliverySchedule("3")
+      .then((res: any) => {
+        setSchedule(res);
+      })
+      .catch((err: any) => {
+        console.error(err);
+      });
+    checkProducts("6,12")
+      .then((res: any) => {
+        console.log(res);
+      })
+      .catch((err: any) => {
+        console.error(err);
+      });
+  }, []);
 
   return (
     <SC.Container>
@@ -40,7 +59,10 @@ function Checkout() {
             <SC.Circle>2</SC.Circle>
             <SC.Title>Agendamento de entrega</SC.Title>
           </SC.TitleContainer>
-          <DeliveryCard />
+          <DeliveryCard
+            schedule={schedule}
+            onSelect={(id: any) => setScheduleSelected(id)}
+          />
         </SC.Step>
         <SC.Step>
           <SC.TitleContainer>

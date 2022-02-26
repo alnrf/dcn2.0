@@ -10,6 +10,7 @@ import Category from "./pages/category/Category";
 import Product from "./pages/product/Product";
 import Orders from "./pages/orders/Orders";
 import Profile from "./pages/profile/Profile";
+import Search from "./pages/search/Search";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/ajuda/" element={<Help />} />
         <Route path="/meus-pedidos/" element={<Orders />} />
         <Route path="/perfil/" element={<Profile />} />
+        <Route path="/busca/:termo" element={<Search />} />
       </Routes>
     </Router>
   );

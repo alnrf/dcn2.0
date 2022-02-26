@@ -9,13 +9,18 @@ import Products from "../../components/products/Products";
 import CartSideBar from "../../components/cartSideBar/CartSideBar";
 import { getCategory, getProductList } from "../../services/services";
 import { setCategory, setProducts } from "../../redux/ducks/product/products";
+import { useNavigate } from "react-router-dom";
+import NoProducts from "../../components/noProducts/NoProducts";
+import ReactLoading from "react-loading";
 
 const Home = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const productList = useSelector((data: any) => data.productStore.products);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     getCategory()
       .then((res) => {
         dispatch(setCategory(res.category));
@@ -25,13 +30,32 @@ const Home = () => {
     getProductList()
       .then((res) => {
         dispatch(setProducts(res.product));
+        setIsLoading(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+      });
   }, []);
+
+  const handleGotoCategory = (data: any) => {
+    navigate(`/categoria/${data}`);
+  };
 
   return (
     <SC.Container>
-      <Sidebar />
+      {isLoading ? (
+        <ReactLoading
+          type="spinningBubbles"
+          color="#144c8b"
+          height={"50px"}
+          width={"50px"}
+        />
+      ) : (
+        <>
+          <Sidebar onGotoCategory={(data: any) => handleGotoCategory(data)} />
+        </>
+      )}
       <SC.HomeContent>
         <SC.BannerContent>
           <Banner item={Churrasco} />
@@ -43,7 +67,22 @@ const Home = () => {
           </SC.FreeDeliveryText>
         </SC.FreeDeliveryBar>
         <SC.ProductsContent>
-          <Products data={productList} />
+          {isLoading ? (
+            <ReactLoading
+              type="spinningBubbles"
+              color="#144c8b"
+              height={"10%"}
+              width={"10%"}
+            />
+          ) : (
+            <>
+              {productList.length ? (
+                <Products data={productList} />
+              ) : (
+                <NoProducts />
+              )}
+            </>
+          )}
         </SC.ProductsContent>
       </SC.HomeContent>
       <CartSideBar />

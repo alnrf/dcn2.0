@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Input } from "@chakra-ui/react";
 
 type Prop = {
   isCpf: boolean;
@@ -39,7 +40,7 @@ export const Error = styled.span`
   margin: 2px 0 0 0;
 `;
 
-export const Input = styled.input`
+export const InputField = styled(Input)`
   display: flex;
   width: 100%;
   height: 48px;
@@ -55,20 +56,18 @@ export const Input = styled.input`
 
 export const PasswordWrap = styled.div`
   display: flex;
-  height: 48px;
+
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  background-color: #f7f7f7;
-  padding: 12px;
-  border: 1px solid #d8d8d8;
-  border-radius: 6px;
+  justify-content: flex-start;
+
+
   &:focus {
     border-color: #134b8b;
   }
 `;
 
-export const PassWordInput = styled.input`
+export const PassWordInput = styled(Input)`
   display: flex;
   width: 100%;
   background-color: #f7f7f7;
