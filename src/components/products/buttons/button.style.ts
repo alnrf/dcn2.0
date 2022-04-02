@@ -17,7 +17,7 @@ export const BuyButton = styled.div`
   justify-content: center;
   border-radius: 5px;
   background-color: #f3f3f3;
-  heigth: 36px;
+  height: 36px;
   width: 201px;
   transition: 0.35s ease-in-out;
   cursor: pointer;
@@ -45,7 +45,7 @@ export const AddRmvBtn = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  heigth: 36px;
+  height: 36px;
   width: 201px;
 
   background-color: #144C8B;

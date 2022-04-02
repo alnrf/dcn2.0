@@ -133,3 +133,22 @@ export const getZipCode = async (zipcode) => {
 
   return response.data;
 };
+
+export const searchProduct = async (product) => {
+  const response = await api
+    .get(`/product?page=1&limit=100&title=${product}`)
+    .catch((err) => Promise.reject(new Error(err)));
+  return response.data;
+};
+
+export const getDeliverySchedule = async (merchant_id) => {
+  const response = await api.get(
+    `/order/delivery-options?merchant_id=${merchant_id}`
+  );
+  return response.data;
+};
+
+export const checkProducts = async (ids) => {
+  const response = await api.get(`/product/check?ids=${ids}`);
+  return response.data;
+};

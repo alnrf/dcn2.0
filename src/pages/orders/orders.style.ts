@@ -420,3 +420,16 @@ export const ProductImage = styled.img`
   object-fit: fill;
   border-radius: 6px;
 `;
+
+export const NoOrder = styled.div`
+   display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: left;
+  justify-content: center;
+  font-size: 13px;
+  font-style: normal;
+  line-height: 13px;
+  font-weight: 400;
+  color: #fff;
+`;

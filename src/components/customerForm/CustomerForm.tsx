@@ -3,10 +3,21 @@ import * as SC from "./customer.style";
 
 import { IoEyeSharp, IoEyeOffSharp } from "react-icons/io5";
 import { Icon } from "@chakra-ui/react";
+import { CustomerProps } from "./Interface";
 
 function CustomerForm() {
   const [isCpf, setIsCpf] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [customerInfo, setCustomerInfo] = useState<CustomerProps>({
+    birthdate: "",
+    document_number: "",
+    email_address: "",
+    full_name: "",
+    password: "",
+    phone_number: "",
+    social_name: "",
+  });
+
   return (
     <SC.Container>
       <SC.Row>
@@ -22,49 +33,110 @@ function CustomerForm() {
           <SC.Row>
             <SC.InputContainer style={{ marginRight: "8px" }}>
               <SC.Label>Nome</SC.Label>
-              <SC.Input type="text" name="first_name" nav-index="1" />
-              <SC.Error>Informe seu nome.</SC.Error>
+              <SC.InputField
+                type="text"
+                name="first_name"
+                nav-index="1"
+                value={customerInfo.full_name}
+                variant="outline"
+                onChange={(e: any) =>
+                  setCustomerInfo({
+                    ...customerInfo,
+                    full_name: e.target.value,
+                  })
+                }
+              />
             </SC.InputContainer>
           </SC.Row>
           <SC.Row>
             <SC.InputContainer style={{ marginRight: "8px" }}>
               <SC.Label>CPF</SC.Label>
-              <SC.Input type="text" name="cpf" nav-index="2" />
-              <SC.Error>Informe seu CPF.</SC.Error>
+              <SC.InputField
+                type="text"
+                name="cpf"
+                nav-index="2"
+                value={customerInfo.document_number}
+                variant="outline"
+                onChange={(e: any) =>
+                  setCustomerInfo({
+                    ...customerInfo,
+                    document_number: e.target.value,
+                  })
+                }
+              />
             </SC.InputContainer>
             <SC.InputContainer style={{ marginLeft: "8px" }}>
               <SC.Label>Telefone para contato</SC.Label>
-              <SC.Input type="text" name="phone" nav-index="3" />
-              <SC.Error>Informe seu telefone.</SC.Error>
+              <SC.InputField
+                type="text"
+                name="phone"
+                nav-index="3"
+                value={customerInfo.phone_number}
+                variant="outline"
+                onChange={(e: any) =>
+                  setCustomerInfo({
+                    ...customerInfo,
+                    phone_number: e.target.value,
+                  })
+                }
+              />
             </SC.InputContainer>
           </SC.Row>
           <SC.InputContainer>
             <SC.Label>E-mail</SC.Label>
-            <SC.Input type="e-mail" name="email" nav-index="4" />
-            <SC.Error>Informe seu e-mail.</SC.Error>
+            <SC.InputField
+              type="e-mail"
+              name="email"
+              nav-index="4"
+              value={customerInfo.email_address}
+              variant="outline"
+              onChange={(e: any) =>
+                setCustomerInfo({
+                  ...customerInfo,
+                  email_address: e.target.value,
+                })
+              }
+            />
           </SC.InputContainer>
           <SC.Row>
             <SC.InputContainer style={{ marginRight: "8px" }}>
               <SC.Label>Senha</SC.Label>
-              <SC.PasswordWrap style={{ width: "100%" }}>
-                <SC.PassWordInput
+              <SC.PasswordWrap>
+                <SC.InputField
                   type={showPassword ? "text" : "password"}
                   name="password"
                   nav-index="5"
+                  value={customerInfo.password}
+                  onChange={(e: any) =>
+                    setCustomerInfo({
+                      ...customerInfo,
+                      password: e.target.value,
+                    })
+                  }
                 />
                 <Icon
                   as={showPassword ? IoEyeOffSharp : IoEyeSharp}
                   onClick={() => setShowPassword(!showPassword)}
-                  fontSize="24px"
-                  style={{ cursor: "pointer" }}
+                  fontSize="20px"
+                  style={{ cursor: "pointer", marginLeft: "8px" }}
                 />
               </SC.PasswordWrap>
-              <SC.Error>Informe uma senha.</SC.Error>
             </SC.InputContainer>
             <SC.InputContainer style={{ marginLeft: "8px" }}>
               <SC.Label>Data de nascimento</SC.Label>
-              <SC.Input type="date" name="birthdate" nav-index="6" />
-              <SC.Error>Informe a data de nascimento.</SC.Error>
+              <SC.InputField
+                type="date"
+                name="birthdate"
+                nav-index="6"
+                value={customerInfo.birthdate}
+                variant="outline"
+                onChange={(e: any) =>
+                  setCustomerInfo({
+                    ...customerInfo,
+                    birthdate: e.target.value,
+                  })
+                }
+              />
             </SC.InputContainer>
           </SC.Row>
         </>
@@ -72,33 +144,85 @@ function CustomerForm() {
         <>
           <SC.InputContainer>
             <SC.Label>Nome fantasia</SC.Label>
-            <SC.Input type="text" name="fantasy_name" nav-index="1" />
-            <SC.Error>Informe o nome fantasia.</SC.Error>
+            <SC.InputField
+              type="text"
+              name="fantasy_name"
+              nav-index="1"
+              value={customerInfo.full_name}
+              variant="outline"
+              onChange={(e: any) =>
+                setCustomerInfo({
+                  ...customerInfo,
+                  full_name: e.target.value,
+                })
+              }
+            />
           </SC.InputContainer>
           <SC.InputContainer>
             <SC.Label>Razão social</SC.Label>
-            <SC.Input type="text" name="fantasy_name" nav-index="2" />
-            <SC.Error>Informe a razão social.</SC.Error>
+            <SC.InputField
+              type="text"
+              name="fantasy_name"
+              nav-index="2"
+              value={customerInfo.social_name}
+              variant="outline"
+              onChange={(e: any) =>
+                setCustomerInfo({
+                  ...customerInfo,
+                  social_name: e.target.value,
+                })
+              }
+            />
           </SC.InputContainer>
           <SC.Row>
             <SC.InputContainer style={{ marginRight: "8px" }}>
               <SC.Label>CNPJ</SC.Label>
-              <SC.Input type="text" name="cnpj" nav-index="3" />
-              <SC.Error>Informe o CNPJ.</SC.Error>
+              <SC.InputField
+                type="text"
+                name="cnpj"
+                nav-index="3"
+                value={customerInfo.document_number}
+                variant="outline"
+                onChange={(e: any) =>
+                  setCustomerInfo({
+                    ...customerInfo,
+                    document_number: e.target.value,
+                  })
+                }
+              />
             </SC.InputContainer>
             <SC.InputContainer style={{ marginLeft: "8px" }}>
               <SC.Label>Telefone para contato</SC.Label>
-              <SC.Input type="text" name="phone" nav-index="4" />
-              <SC.Error>Informe seu telefone.</SC.Error>
+              <SC.InputField
+                type="text"
+                name="phone"
+                nav-index="4"
+                value={customerInfo.phone_number}
+                variant="outline"
+                onChange={(e: any) =>
+                  setCustomerInfo({
+                    ...customerInfo,
+                    phone_number: e.target.value,
+                  })
+                }
+              />
             </SC.InputContainer>
           </SC.Row>
           <SC.InputContainer style={{ marginRight: "8px" }}>
             <SC.Label>Defina sua senha.</SC.Label>
-            <SC.PasswordWrap style={{ width: "49%" }}>
+            <SC.PasswordWrap>
               <SC.PassWordInput
                 type={showPassword ? "text" : "password"}
                 name="password"
                 nav-index="5"
+                style={{ width: "49%", marginRight: "8px" }}
+                value={customerInfo.password}
+                onChange={(e: any) =>
+                  setCustomerInfo({
+                    ...customerInfo,
+                    password: e.target.value,
+                  })
+                }
               />
               <Icon
                 as={showPassword ? IoEyeOffSharp : IoEyeSharp}
@@ -107,7 +231,6 @@ function CustomerForm() {
                 style={{ cursor: "pointer" }}
               />
             </SC.PasswordWrap>
-            <SC.Error>Informe uma senha.</SC.Error>
           </SC.InputContainer>
         </>
       )}
