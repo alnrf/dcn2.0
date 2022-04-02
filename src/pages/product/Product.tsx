@@ -2,52 +2,29 @@ import React, { useEffect, useState } from "react";
 import * as SC from "./product.style";
 import { useNavigate, useParams } from "react-router-dom";
 import { toCurrency } from "../../utils/formatMoney";
-import Buy from "../../components/products/buttons/Buy";
-import AddOrRemove from "../../components/products/buttons/AddOrRemove";
+
 import { getProductDetail } from "../../services/services";
 import settings from "../../services/settings";
 import { getMeasureAbbreviation, getMeasure } from "../../utils/formatMeasure";
+import { BsCartPlus } from "react-icons/bs";
+import { Icon } from "@chakra-ui/react";
+import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
+import {
+  addItemToCart,
+  decreaseCartItem,
+  increaseCartItem,
+} from "../../redux/ducks/cart/cart";
+import { useDispatch } from "react-redux";
 
-interface iCategory {
-  id?: number;
-  title?: string;
-  seo_url?: string;
-}
-
-interface iProdDetail {
-  id?: number;
-  uuid?: string;
-  code?: string;
-  title?: string;
-  from_amount?: any;
-  amount?: any;
-  stock_type?: string;
-  stock_unity?: number;
-  seo_url?: string;
-  full_seo_url?: string;
-  main_image_id?: number;
-  show_home?: string;
-  image?: [
-    {
-      id?: number;
-      main?: boolean;
-      path?: string | undefined;
-      image?: string | undefined;
-      image_thumb?: string | undefined;
-      image_path?: string | undefined;
-      image_url?: string | undefined;
-    }
-  ];
-  category?: iCategory;
-  subcategory?: iCategory;
-}
+import { iProdDetail } from "./interfaces";
+import CartSideBar from "../../components/cartSideBar/CartSideBar";
 
 function Product() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const params = useParams();
   const [prodData, setProdDetail] = useState<iProdDetail>();
   const [mainImg, setMainImg] = useState();
-
   const [qtdeCart, setItem] = useState(0);
 
   useEffect(() => {
@@ -60,6 +37,35 @@ function Product() {
   }, []);
 
   useEffect(() => {}, [prodData]);
+
+  const handleAddItem = () => {
+    const payload = {
+      id: prodData?.id,
+      title: prodData?.title,
+      stock_type: prodData?.stock_type,
+      stock_unity: prodData?.stock_unity,
+      amount: prodData?.amount,
+      totalAmount: prodData?.amount,
+      image: mainImg,
+      quantity: 1,
+    };
+    setItem(qtdeCart + 1);
+    dispatch(addItemToCart(payload));
+  };
+
+  const handleIncreaseItem = (id: any) => {
+    if (qtdeCart >= 1) {
+      setItem(qtdeCart + 1);
+      dispatch(increaseCartItem(id));
+    }
+  };
+
+  const handleDecreaseItem = (id: any) => {
+    if (qtdeCart > 0) {
+      setItem(qtdeCart - 1);
+      dispatch(decreaseCartItem(id));
+    }
+  };
 
   return (
     <SC.Container>
@@ -102,7 +108,7 @@ function Product() {
               <SC.Price>{`R$${toCurrency(prodData?.amount)}`}</SC.Price>
               {prodData?.from_amount > 0 && (
                 <SC.PriceFrom>
-                  {`R$${toCurrency(prodData?.from_amount)}`}
+                  {`R$ ${toCurrency(prodData?.from_amount)}`}
                 </SC.PriceFrom>
               )}
             </SC.PriceWrap>
@@ -118,12 +124,38 @@ function Product() {
         </SC.Product>
         <SC.BuyButtonArea>
           {qtdeCart === 0 ? (
-            <Buy buyAction={() => setItem(qtdeCart + 1)} />
+            <>
+              <SC.BtnContainer onClick={() => handleAddItem()}>
+                <SC.BuyButton>
+                  <Icon
+                    as={BsCartPlus}
+                    fontSize="24px"
+                    style={{ marginRight: "8px" }}
+                  />
+                  <SC.BuyTxt>Comprar</SC.BuyTxt>
+                </SC.BuyButton>
+              </SC.BtnContainer>
+            </>
           ) : (
-            <AddOrRemove />
+            <>
+              <SC.BtnContainer>
+                <SC.AddRmvBtn>
+                  <SC.Remove onClick={() => handleDecreaseItem(prodData?.id)}>
+                    <Icon as={FiMinusCircle} fontSize="16px" />
+                  </SC.Remove>
+                  <SC.Counter>
+                    <SC.Txt>{qtdeCart}</SC.Txt>
+                  </SC.Counter>
+                  <SC.Add onClick={() => handleIncreaseItem(prodData?.id)}>
+                    <Icon as={FiPlusCircle} fontSize="16px" />
+                  </SC.Add>
+                </SC.AddRmvBtn>
+              </SC.BtnContainer>
+            </>
           )}
         </SC.BuyButtonArea>
       </SC.Content>
+      <CartSideBar />
     </SC.Container>
   );
 }

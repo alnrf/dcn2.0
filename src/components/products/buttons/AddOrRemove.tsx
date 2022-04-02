@@ -5,6 +5,7 @@ import { Icon } from "@chakra-ui/react";
 
 const AddOrRemove = () => {
   const [qtdeItem, setQtdeItem] = useState(0);
+
   return (
     <SC.BtnContainer>
       <SC.AddRmvBtn>
